@@ -232,6 +232,10 @@
                             </select>
                         </td>
                     </tr>
+                    <?php
+                    include('tr.php')
+                        ?>
+                   
                 </tbody>
             </table>
         </div>
