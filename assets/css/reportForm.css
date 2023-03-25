@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap');
+body{
+    font-family: 'Kanit', sans-serif;
+}
+
+.containerCss{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+}
+
+.titleForm{
+    margin-top: 2.5rem; 
+    font-size: 2rem;
+    line-height: 2rem; 
+    font-weight: 500;
+}
+
+.formContainer{
+    padding: 1.25rem; 
+    padding-top: 2.5rem; 
+    width: 80%; 
+    height: 100vh; 
+}
+
+.inputTitle{
+    padding: 0.25rem; 
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    border: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    border-radius: 0.375rem;
+}
+
+.form-line-1{
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.form-line-2{
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inputFieldForm{
+    padding: 0.25rem; 
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    border-radius: 0.375rem; 
+    border-width: 2px; 
+    border-color: #9CA3AF
+}
+.input-descript{
+    display: block; 
+    padding: 0.5rem; 
+    margin-top: 0.25rem; 
+    font-size: 1.125rem;
+    line-height: 1.75rem; 
+    border-radius: 0.375rem; 
+    border-width: 2px; 
+    border-color: #9CA3AF;
+}
+
+.btn-submit{
+    margin: 0.25rem; 
+    margin-top: 1.25rem; 
+    width: 16.666667%; 
+    height: 2rem; 
+    border-radius: 0.375rem; 
+    border: none;
+    background-color: #B88A64;
+}
+
+.btn-submit:hover {
+ color: #ffffff; 
+ }
