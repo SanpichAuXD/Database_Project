@@ -122,12 +122,12 @@ form{
 #input-lname{
     margin-left: 35px;
 }
-input:focus ~ .placeholder, input:valid ~ .placeholder,.input-box-fname:focus ~ .placeholder-fname, .input-box-fname:valid ~ .placeholder-fname{
+.input-box:focus ~ .placeholder, .input-box:valid ~ .placeholder{
     transform: translate(-5px, -35px);
     font-size: 14px;
     transition: .3s;
 }
-.input-box-lname:focus ~ .placeholder-lname, .input-box-lname:valid ~ .placeholder-lname{
+.input-box-fname:focus ~ .placeholder-fname, .input-box-fname:valid ~ .placeholder-fname,.input-box-lname:focus ~ .placeholder-lname, .input-box-lname:valid ~ .placeholder-lname{
     transform: translate(-5px, -35px);
     font-size: 14px;
     transition: .3s;
@@ -137,7 +137,7 @@ input:focus ~ .placeholder, input:valid ~ .placeholder,.input-box-fname:focus ~ 
     display: flex;
     justify-content: center;
 }
-button{
+.button{
     width: 190px;
     height: 60px;
     font-size: 24px;
