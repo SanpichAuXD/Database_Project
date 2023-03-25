@@ -1,0 +1,172 @@
+*{
+    font-family: Inter;
+    transition: all .2s;
+}
+.main{
+    max-width: 100vw;
+    max-height: 100vh;
+    margin-top: 100px;
+}
+form{
+    max-width: 800px;
+    height: 800px;
+    background-color: #e6ccb2;
+    border-radius: 100px;
+    margin: auto;
+    z-index: 0;
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+.profile-image{
+    width: 150px;
+    height: 150px;
+    background-color: #e6ccb2;
+    border-radius: 100%;
+    z-index: 1;
+    margin: auto;
+    position: relative;
+    margin-bottom: -100px;
+    left: 0;
+    right: 0;
+    box-shadow:  0px 5px 5px 2px hsla(0, 0%, 0%, 30%);
+}
+.profile-image > img{
+    position: absolute;
+    left: 20px;
+    right: 0;
+    top: 10px;
+    margin: auto;
+}
+#register-title{
+    font-size: 48px;
+    padding-top: 97px;
+    margin-bottom: 52px;
+}
+#name{
+    display: inline-flex;
+    width: 630px;
+    position: relative;
+    margin: auto;
+}
+.data-input{
+    width: 630px;
+    position: relative;
+    margin: auto;
+}
+.input-box{
+    width: 570px;
+    height: 50px;
+    background-color: white;
+    border-radius: 25px;
+    margin: auto;
+    border: none;
+    padding: 0 0 0 60px;
+    outline: none;
+    font-size: 20px;
+}
+.input-box-fname, .input-box-lname{
+    width: 270px;
+    height: 50px;
+    background-color: white;
+    border-radius: 25px;
+    margin: auto;
+    border: none;
+    padding: 0 0 0 20px;
+    outline: none;
+    font-size: 20px;
+}
+.data-img{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:0;
+}
+#username-img{
+    background-image: url("https://cdn4.iconfinder.com/data/icons/e-commerce-icon-set/48/Username_2-256.png");
+    background-size: 100% 100%;
+}
+.password-img{
+    background-image: url("https://cdn4.iconfinder.com/data/icons/e-commerce-icon-set/48/Password_2-256.png");
+    background-size: 100% 100%;
+}
+#email-img{
+    background-image: url("https://cdn0.iconfinder.com/data/icons/social-circle-3/72/Email-256.png");
+    background-size: 100% 100%;
+}
+.placeholder{
+    position: absolute;
+    top: 13px;
+    left: 60px;
+    font-size: 20px;
+    color: #A4A4A4;
+}
+.placeholder-fname, .placeholder-lname{
+    position: absolute;
+    top: 13px;
+    font-size: 20px;
+    color: #A4A4A4;
+}
+#fname{
+    left: 20px;
+}
+#lname{
+    left: 380px;
+}
+.data-input, #name{
+    margin-bottom: 50px;;
+}
+#input-fname{
+    margin-right:35px;
+}
+#input-lname{
+    margin-left: 35px;
+}
+input:focus ~ .placeholder, input:valid ~ .placeholder,.input-box-fname:focus ~ .placeholder-fname, .input-box-fname:valid ~ .placeholder-fname{
+    transform: translate(-5px, -35px);
+    font-size: 14px;
+    transition: .3s;
+}
+.input-box-lname:focus ~ .placeholder-lname, .input-box-lname:valid ~ .placeholder-lname{
+    transform: translate(-5px, -35px);
+    font-size: 14px;
+    transition: .3s;
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 190px;
+    height: 60px;
+    font-size: 24px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: auto;
+}
+#register-btn{
+    background-color: #00FF19;
+}
+#register-btn:hover{
+    background-color: #00DF16;
+}
+#cancel-btn{
+    background-color: #FF0000;
+}
+#cancel-btn:hover{
+    background-color: #CF0000;
+}
+/* https://cdn0.iconfinder.com/data/icons/font-awesome-solid-vol-2/576/eye-512.png */
+#closing-password, #closing-cfpassword{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-image: url("https://cdn0.iconfinder.com/data/icons/font-awesome-solid-vol-2/640/eye-slash-256.png");
+    background-size: 100% 100%;
+    right: 10px;
+    top: 25%;
+    cursor: pointer;
+}

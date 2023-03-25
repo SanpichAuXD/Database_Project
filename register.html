@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <script src="./register.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="profile-image">
+            <img width="110px"src="https://cdn0.iconfinder.com/data/icons/phosphor-regular-vol-5/256/user-plus-512.png" alt="">
+        </div>
+        <form class="register-container">
+            <h1 id="register-title">
+                REGISTER
+            </h1>
+            <div id="name">
+                <input type="text" class="input-box-fname" id="input-fname" required>
+                </input>
+                <span class="placeholder-fname" id="fname">First Name</span>
+                <input type="text" class="input-box-lname" id="input-lname" required>
+                </input>
+                <span class="placeholder-lname" id="lname">Last Name</span>
+            </div>
+            <div class="data-input">
+                <input type="text" class="input-box" id="input-username" required>
+                </input>
+                <span class="placeholder">Username</span>
+                <div class="data-img" id="username-img">
+                </div>
+            </div>
+            <div class="data-input">
+                <input type="password" class="input-box" id="input-password" required>
+                </input>
+                <span class="placeholder">Password</span>
+                <div class="data-img password-img">
+                </div>
+                <a id="closing-password" onclick="closing_password()">
+                </a>
+            </div>
+            <div class="data-input">
+                <input type="password" class="input-box" id="input-cfpassword" required>
+                </input>
+                <span class="placeholder">Confirm Password</span>
+                <div class="data-img password-img">
+                </div>
+                <a id="closing-cfpassword" onclick="closing_cfpassword()">
+                </a>
+            </div>
+            <div class="data-input">
+                <input type="email" class="input-box" id="input-email" required>
+                </input>
+                <span class="placeholder">Email</span>
+                <div class="data-img" id="email-img">
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="submit" id="register-btn">
+                    REGISTER
+                </button>
+                <button type="button" id="cancel-btn">
+                    CANCEL
+                </button>
+            </div>
+        </form>
+</body>
+</html>

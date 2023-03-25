@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <script src="./login.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="profile-image">
+            <img width="110px"src="https://cdn0.iconfinder.com/data/icons/phosphor-regular-vol-4/256/user-256.png" alt="">
+        </div>
+        <form class="login-container">
+            <h1 id="login-title">
+                LOGIN
+            </h1>
+            <div class="data-input">
+                <input type="text" class="input-box" required>
+                </input>
+                <span class="placeholder">Username</span>
+                <div class="data-img" id="username-img">
+                </div>
+            </div>
+            <div class="data-input">
+                <input type="password" class="input-box" id="input-password" required>
+                </input>
+                <span class="placeholder">Password</span>
+                <div class="data-img" id="password-img">
+                </div>
+                <a id="closing-password" onclick="closing_password()">
+                </a>
+            </div>
+            <button type="submit" id="login-btn">
+                LOGIN
+            </button>
+            <a type="button" id="register-btn">
+                REGISTER
+            </a>
+        </form>
+</body>
+</html>
