@@ -61,7 +61,18 @@
         <h1 class="titleForm">แบบฟอร์มร้องเรียน</h1>
         <form @submit.prevent="submit" class="formContainer">
             <div style="position: relative;">
-                <input type="text" class="inputTitle" size="30" placeholder="Untitled">
+              <p>COMPLAINT TYPE</p>
+                <select name="province" class="inputFieldForm">
+                  <option disabled selected value="">Please select type</option>
+                  <option value="1">Deserted area</option>
+                  <option value="2">Defective area</option>
+                  <option value="3">Illegal area</option>
+                  <option value="4">Mischief</option>
+                  <option value="5">Traffic offenders</option>
+                  <option value="6">Non-standard products</option>
+                  <option value="7">Fraud/Corruption</option>
+                  <option value="8">Other</option>
+                </select>
                 <hr>
             </div>
             <div class="form-line-1">
@@ -72,8 +83,8 @@
                 <div style="padding-top: 1.25rem;">
                     <div class="relative">
                         <p>PROVINCE</p>
-                        <select name="country" class="inputFieldForm" >
-                            <option disabled selected value="">Please select country</option>
+                        <select name="province" class="inputFieldForm" >
+                            <option disabled selected value="">Please select province</option>
                         </select>
                     </div>
                     
