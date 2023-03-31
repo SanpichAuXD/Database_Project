@@ -7,9 +7,9 @@
     max-height: 100vh;
     margin-top: 100px;
 }
-form{
+.register-container{
     max-width: 800px;
-    height: 800px;
+    min-height: 800px;
     background-color: #e6ccb2;
     border-radius: 100px;
     margin: auto;
@@ -34,9 +34,9 @@ form{
 .profile-image > img{
     position: absolute;
     left: 20px;
-    right: 0;
     top: 10px;
-    margin: auto;
+    width: 75%;
+    height: 75%;
 }
 #register-title{
     font-size: 48px;
@@ -45,17 +45,17 @@ form{
 }
 #name{
     display: inline-flex;
-    width: 630px;
+    width: 80%;
     position: relative;
     margin: auto;
 }
 .data-input{
-    width: 630px;
+    width: 80%;
     position: relative;
     margin: auto;
 }
 .input-box{
-    width: 630px;
+    width: 100%;
     height: 50px;
     background-color: white;
     border-radius: 25px;
@@ -65,8 +65,8 @@ form{
     outline: none;
     font-size: 20px;
 }
-.input-box-fname, .input-box-lname{
-    width: 280px;
+.input-box-name{
+    width: 100%;
     height: 50px;
     background-color: white;
     border-radius: 25px;
@@ -101,7 +101,7 @@ form{
     font-size: 20px;
     color: #A4A4A4;
 }
-.placeholder-fname, .placeholder-lname{
+.placeholder-name{
     position: absolute;
     top: 13px;
     font-size: 20px;
@@ -127,18 +127,20 @@ form{
     font-size: 14px;
     transition: .3s;
 }
-.input-box-fname:focus ~ .placeholder-fname, .input-box-fname:valid ~ .placeholder-fname,.input-box-lname:focus ~ .placeholder-lname, .input-box-lname:valid ~ .placeholder-lname{
+#input-fname:focus ~ #fname, #input-fname:valid ~ #fname,#input-lname:focus ~ #lname, #input-lname:valid ~ #lname{
     transform: translate(-5px, -35px);
     font-size: 14px;
     transition: .3s;
 }
 .buttons{
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
+    padding-bottom: 100px;
+    margin: auto;
 }
 .button{
-    width: 190px;
+    width: 30%;
     height: 60px;
     font-size: 24px;
     color: white;
@@ -166,7 +168,101 @@ form{
     height: 25px;
     background-image: url("https://cdn0.iconfinder.com/data/icons/font-awesome-solid-vol-2/640/eye-slash-256.png");
     background-size: 100% 100%;
-    right: 10px;
+    right: -30px;
     top: 25%;
     cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+    .register-container{
+        max-width: 700px;
+    }
+    #lname{
+        left: 340px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .register-container{
+        max-width: 600px;
+    }
+    .profile-image{
+        width: 130px;
+        height: 130px;
+        margin-bottom: -65px;
+    }
+    #lname{
+        left: 300px;
+    }
+}
+@media screen and (max-width: 650px) {
+    .register-container{
+        max-width: 500px;
+    }
+    .profile-image{
+        width: 110px;
+        height: 110px;
+        margin-bottom: -55px;
+    }
+    #lname{
+        left: 260px;
+    }
+}
+@media screen and (max-width: 650px) {
+    .register-container{
+        max-width: 500px;
+    }
+    .profile-image{
+        width: 90px;
+        height: 90px;
+        margin-bottom: -45px;
+    }
+    #lname{
+        left: 260px;
+    }
+    #register-title{
+        font-size: 36px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .register-container{
+        max-width: 400px;
+    }
+    #name{
+        display: block;
+        margin-bottom: 0;
+    }
+    .input-box-name{
+        margin-bottom: 50px;
+    }
+    #input-lname{
+        margin-left: 0;
+    }
+    #lname{
+        top:55%;
+        left: 20px;
+    }
+    .input-box ~ .placeholder, .input-box-name ~ .placeholder-name{
+        transform: translate(-5px, -35px);
+        font-size: 14px;
+        transition: .3s;
+    }
+    #closing-password, #closing-cfpassword{
+        right: 10px;
+    }
+    .buttons{
+        display: block;
+    }
+    .button{
+        width: 70%;
+        margin-bottom: 30px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .register-container{
+        max-width: 300px;
+    }
+    .profile-image{
+        width: 90px;
+        height: 90px;
+        margin-bottom: -45px;
+    }
 }
