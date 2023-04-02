@@ -65,3 +65,6 @@ h6 {
 .footer col-4 {
     text-align: center;
 }
+.footer col {
+    text-align: right;
+}
