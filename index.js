@@ -20,6 +20,9 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
+const indexRouter = require('./routes/index')
+
+app.use(indexRouter.router)
 app.get('/', (req,res)=>{
     res.render('test')
 })

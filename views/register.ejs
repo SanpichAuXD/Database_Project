@@ -18,47 +18,7 @@
     <script src="/js/register.js"></script>
 </head>
 <body>
-    <nav
-      class="navbar navbar-expand-lg navbar-light"
-      style="background-color: #604022"
-    >
-      <a class="navbar-brand text-light" href="#">Logo</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active text-light">
-            <a class="nav-link text-light" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">Report</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">About us</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav my-2 my-lg-0">
-          <li class="nav-item">
-            <a class="nav-link text-light" href="./login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="./register.html">Sign up</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <%- include('navbar') -%>
     <div class="main">
         <div class="profile-image">
             <img width="110px"src="https://cdn0.iconfinder.com/data/icons/phosphor-regular-vol-5/256/user-plus-512.png" alt="">
