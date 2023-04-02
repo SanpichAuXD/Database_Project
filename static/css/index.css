@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    font-family: 'Kanit', sans-serif;
+}
+
+#arrow{
+    animation: warp 3s ease-in-out infinite;
+}
+@keyframes warp{
+    0%{
+        transform: translateY(5%);
+        opacity: 0.7;
+    }
+    50%{
+        transform: translateY(0);
+        opacity: 0.2;
+    }
+    100%{
+        transform: translateY(5%) ;
+        opacity: 0.7;
+    }
+}
