@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <title>Chart</title>
+    <style>
+      html,body {background-color: #e6ccb2; height: 100%;}
+      #nav-item {color: #ddb892}
+      #nav-item:hover {color: #ede0d4}
+    </style>
+</head>
+<body>
+  <!--Header-->
+  <nav class="navbar navbar-dark navbar-expand-lg p-3 h4 m-auto" style="background-color:#7f5539;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><p class="h4 p-0 m-0">Icon</p></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="reportForm.html">Report</a></li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="#">About us</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="register.html">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--Chart-->
+  <canvas id="reportChart" class="m-4 py-3 px-3" style="width:100%; height:60vh"></canvas>
+  <script> 
+    var canvasElement = document.getElementById("reportChart");
+    var reportType = ["Deserted Area","Defective Area","Illegal Area","Mischief","Traff","Non-Standard","Fraud","Other"];
+    var reportValue = [1,2,3,4,5,6,7,8];
+
+    var config = {
+      type: "bar",
+      data: {
+        labels: reportType,
+        datasets: 
+          [{
+            label: "Number of reports",
+            data: reportValue,
+          }]
+      }
+    };
+    var ReportChart = new Chart(canvasElement,config);
+    Chart.defaults.font.size = 16;
+  </script>
+  <!--Footer-->
+  <footer class="py-3 m-auto h5 bottom-0 w-100" style="background-color:#7f5539;position:absolute;bottom:0px;">
+    <div class="container-fluid">
+      <ul class="nav justify-content-center py-1">
+        <li class="nav-item"><a href="index.html" class="nav-link px-3" id="nav-item">Home</a></li>
+        <li class="nav-item"><a href="reportForm.html" class="nav-link px-3" id="nav-item">Report</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-3" id="nav-item">About us</a></li>
+        <li class="nav-item"><a href="login.html" class="nav-link px-3" id="nav-item">Login</a></li>
+        <li class="nav-item"><a href="register.html" class="nav-link px-3" id="nav-item">Register</a></li>
+      </ul>
+      <hr style="border: 2px solid #ddb892;" class="m-2">
+      <p class="text-center m-0 py-1" style="color: #ddb892">© 2023 Call Sing</p>
+    </div>
+  </footer>
+</body>
+</html>
