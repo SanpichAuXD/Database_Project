@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/register.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <script src="./assets/js/register.js"></script>
+</head>
+<body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #604022"
+    >
+      <a class="navbar-brand text-light" href="#">Logo</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active text-light">
+            <a class="nav-link text-light" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">About us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-light" href="./login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="./register.html">Sign up</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main">
+        <div class="profile-image">
+            <img width="110px"src="https://cdn0.iconfinder.com/data/icons/phosphor-regular-vol-5/256/user-plus-512.png" alt="">
+        </div>
+        <form class="register-container">
+            <h1 id="register-title">
+                REGISTER
+            </h1>
+            <div id="name">
+                <input type="text" class="input-box-name" id="input-fname" required>
+                </input>
+                <span class="placeholder-name" id="fname">First Name</span>
+                <input type="text" class="input-box-name" id="input-lname" required>
+                </input>
+                <span class="placeholder-name" id="lname">Last Name</span>
+            </div>
+            <div class="data-input">
+                <input type="text" class="input-box" id="input-username" required>
+                </input>
+                <span class="placeholder">Username</span>
+                <div class="data-img" id="username-img">
+                </div>
+            </div>
+            <div class="data-input">
+                <input type="text" class="input-box" id="input-email" required>
+                </input>
+                <span class="placeholder">Email</span>
+                <div class="data-img" id="email-img">
+                </div>
+            </div>
+            <div class="data-input">
+                <input type="password" class="input-box" id="input-password" required>
+                </input>
+                <span class="placeholder">Password</span>
+                <div class="data-img password-img">
+                </div>
+                <a id="closing-password" onclick="closing_password()">
+                </a>
+            </div>
+            <div class="data-input">
+                <input type="password" class="input-box" id="input-cfpassword" required>
+                </input>
+                <span class="placeholder">Confirm Password</span>
+                <div class="data-img password-img">
+                </div>
+                <a id="closing-cfpassword" onclick="closing_cfpassword()">
+                </a>
+            </div>
+            <div class="buttons">
+                <button class="button" type="submit" id="register-btn">
+                    REGISTER
+                </button>
+                <button class="button" type="button" id="cancel-btn">
+                    CANCEL
+                </button>
+            </div>
+        </form>
+</body>
+</html>
