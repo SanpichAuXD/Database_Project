@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/static/css/admin-manager.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+  <title>Admin Organization</title>
+</head>
+
+<body>
+  <!--nav-->
+  <nav class="navbar navbar-dark navbar-expand-lg p-3 h4 m-auto" style="background-color:#7f5539;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <p class="h4 p-0 m-0">Icon</p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="reportForm.html">Report</a></li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="#">About us</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="login.html">Login</a>
+          </li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="register.html">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  </script>
+  <!--main-->
+  <div class="row p-3">
+    <div class="col d-flex justify-content-end ">
+      <button type="button" class="btn btn-outline-dark" id="history-btn" onclick="removeac()">HISTORY</button>
+    </div>
+  </div>
+  <div class="row p-3">
+    <div class="col d-flex justify-content-center">
+      <h1>REPORT FILTER</h1>
+    </div>
+  </div>
+  <hr style="width: 30%; margin: auto">
+  <!--box-->
+  <div class="row" id="main-box">
+    <div class="col-4 col-md-3 col-lg-2 box">
+      <img onclick="addac(0)" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;"
+        alt="">
+      <div onclick="addac(0)" class="detail">
+        <p>1111111111111111111111111111111111111111111111111111</p>
+        <div id="buttons">
+          <button class="btn btn-success">Accept</button>
+          <button class="btn btn-primary">View Detail</button>
+          <button class="btn btn-danger">Decline</button>
+        </div>
+      </div>
+      <a class="close" onclick="removeac()">
+        <div class="active"></div>
+      </a>
+    </div>
+    <div class="col-4 col-md-3 col-lg-2 box">
+      <img onclick="addac(1)" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;"
+        alt="">
+      <div onclick="addac(1)" class="detail">
+        <p>222222222222222222222222222222222222222222222</p>
+        <div id="buttons">
+          <button class="btn btn-success">Accept</button>
+          <button class="btn btn-primary">View Detail</button>
+          <button class="btn btn-danger">Decline</button>
+        </div>
+      </div>
+      <a class="close" onclick="removeac()">
+        <div class="active"></div>
+      </a>
+    </div>
+    <div class="col-4 col-md-3 col-lg-2 box">
+      <img onclick="addac(2)" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;"
+        alt="">
+      <div onclick="addac(2)" class="detail">
+        <p>33333333333333333333333333333333333333333</p>
+        <div id="buttons">
+          <button class="btn btn-success">Accept</button>
+          <button class="btn btn-primary">View Detail</button>
+          <button class="btn btn-danger">Decline</button>
+        </div>
+      </div>
+      <a class="close" onclick="removeac()">
+        <div class="active"></div>
+      </a>
+    </div>
+    <div class="col-4 col-md-3 col-lg-2 box">
+      <img onclick="addac(3)" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;"
+        alt="">
+      <div onclick="addac(3)" class="detail">
+        <p>444444444444444444444444444444444</p>
+        <div id="buttons">
+          <button class="btn btn-success">Accept</button>
+          <button class="btn btn-primary">View Detail</button>
+          <button class="btn btn-danger">Decline</button>
+        </div>
+      </div>
+      <a class="close" onclick="removeac()">
+        <div class="active"></div>
+      </a>
+    </div>
+    <div class="col-4 col-md-3 col-lg-2 box">
+      <img onclick="addac(4)" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;"
+        alt="">
+      <div onclick="addac(4)" class="detail">
+        <p>55555555555555555555555555555555555555555555555555555</p>
+        <div id="buttons">
+          <button class="btn btn-success">Accept</button>
+          <button class="btn btn-primary">View Detail</button>
+          <button class="btn btn-danger">Decline</button>
+        </div>
+      </div>
+      <a class="close" onclick="removeac()">
+        <div class="active"></div>
+      </a>
+    </div>
+    <div class="col-4 col-md-3 col-lg-2 box">
+      <img onclick="addac(5)" src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;"
+        alt="">
+      <div onclick="addac(5)" class="detail">
+        <p>66666666666666666666666666</p>
+        <div id="buttons">
+          <button class="btn btn-success">Accept</button>
+          <button class="btn btn-primary">View Detail</button>
+          <button class="btn btn-danger">Decline</button>
+        </div>
+      </div>
+      <a class="close" onclick="removeac()">
+        <div class="active"></div>
+      </a>
+    </div>
+  </div>
+</body>
+<script src="/static/js/admin-manager.js"></script>
+</html>
