@@ -1,11 +1,12 @@
 *{
-    font-family: Inter;
+    /* font-family: Inter; */
     transition: all .2s;
 }
 .main{
     max-width: 100vw;
-    max-height: 100vh;
-    margin-top: 100px;
+    max-height: 170vh;
+    padding-bottom: 50px;
+    background-color: #7f5539;
 }
 .register-container{
     max-width: 800px;
@@ -13,6 +14,7 @@
     background-color: #e6ccb2;
     border-radius: 100px;
     margin: auto;
+    padding-bottom: 50px;
     z-index: 0;
     display: block;
     text-align: center;
@@ -136,7 +138,7 @@
     width: 90%;
     display: flex;
     justify-content: center;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     margin: auto;
 }
 .button{

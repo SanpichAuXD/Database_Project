@@ -21,8 +21,10 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 
 const indexRouter = require('./routes/index')
+const formRouter = require('./routes/form')
 
 app.use(indexRouter.router)
+app.use(formRouter.router)
 app.get('/', (req,res)=>{
     res.render('test')
 })

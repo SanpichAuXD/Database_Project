@@ -1,10 +1,16 @@
 const express = require("express");
-
+const pool = require('../config')
 
 
 router = express.Router();
 
-router.get("/", (req,res)=>{
+router.get("/", async(req,res)=>{
+    try {
+       const [row,field] = await pool.query('SELECT * FROM user')
+       console.log(row);
+    } catch (error) {
+        console.log(error);
+    }
     res.render('index')
 })
 router.get("/admin", (req,res)=>{
@@ -21,5 +27,8 @@ router.get("/reg", (req,res)=>{
 })
 router.get("/repform", (req,res)=>{
     res.render('reportForm')
+})
+router.get("/chart", (req,res)=>{
+    res.render('chart')
 })
 exports.router = router;

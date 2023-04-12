@@ -18,10 +18,10 @@
 
     <div class="containerCss">
         <h1 class="titleForm">แบบฟอร์มร้องเรียน</h1>
-        <form @submit.prevent="submit" class="formContainer">
+        <form action="/sendprob" method="POST" enctype="multipart/form-data" class="formContainer">
             <div style="position: relative;">
               <p>COMPLAINT TYPE</p>
-                <select name="province" class="inputFieldForm">
+                <select name="type" class="inputFieldForm" required>
                   <option disabled selected value="">Please select type</option>
                   <option value="1">Deserted area</option>
                   <option value="2">Defective area</option>
@@ -37,47 +37,48 @@
             <div class="form-line-1">
                 <div style="padding-top: 1.25rem;">
                     <p>STREET ADDRESS</p>
-                    <input type="text" class="inputFieldForm" size="30" placeholder="street address">
+                    <input type="text" class="inputFieldForm" required name="address" size="30" placeholder="street address">
                 </div>
                 <div style="padding-top: 1.25rem;">
                     <div class="relative">
                         <p>PROVINCE</p>
-                        <select name="province" class="inputFieldForm" >
+                        <select name="province" class="inputFieldForm" required >
                             <option disabled selected value="">Please select province</option>
+                            <option value="Bangkok">Bangkok</option>
                         </select>
                     </div>
                     
                 </div>
                 <div style="padding-top: 1.25rem;">
                     <p>DISTRICT</p>
-                    <input type="text" class="inputFieldForm" size="30" placeholder="district">
+                    <input type="text" name="district" class="inputFieldForm" required size="30" placeholder="district">
                 </div>
                 <div style="padding-top: 1.25rem;">
                     <p>SUB-DISTRICT</p>
-                    <input type="text" class="inputFieldForm" size="30" placeholder="sub-district">
+                    <input type="text" name="subdistrict" class="inputFieldForm" required size="30" placeholder="sub-district">
                 </div>
             </div>
             <hr style="margin-top: 1.25rem; ">
             <div class="form-line-2">
                 <div style="padding-top: 1.25rem;">
                     <div style="position: relative;">
-                        <p>DATE</p>
-                        <input type="date" class="inputFieldForm" size="30">
+                        <p>DATE and TIME</p>
+                        <input type="datetime-local" name="date" class="inputFieldForm" required size="30">
                     </div>
                 </div>
-                <div style="padding-top: 1.25rem;">
+                <!-- <div style="padding-top: 1.25rem;">
                     <div style="position: relative;">
                         <p>TIME</p>
                         <input type="time" class="inputFieldForm" size="30">
                     </div>
-                </div>
+                </div> -->
             </div>
             <hr style="margin-top: 1.25rem; ">
             <div class="form-line-2">
                 <div style="padding-top: 1.25rem;">
                     <div style="position: relative;">
                         <p>IMAGE</p>
-                        <input type="file" class="inputFieldForm" size="30">
+                        <input type="file" class="inputFieldForm" name="prob_img" size="30">
                     </div>
                 </div>
             </div>
@@ -85,7 +86,7 @@
 
             <div style="padding-top: 1.25rem;">
                 <p>DESCRIPTION:</p>
-                <textarea type="text" class="input-descript" cols="60" rows="3.5" placeholder="Description">
+                <textarea type="text" class="input-descript" name="desc" cols="60" rows="3.5" required placeholder="Description">
                 </textarea>
             </div>
             <hr style="margin-top: 1.25rem; ">
