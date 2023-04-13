@@ -32,11 +32,16 @@
             <h1 id="register-title">
                 REGISTER
             </h1>
+            <% if (locals.register_error) { 
+                register_error.forEach(function(error_msg){ %>
+                <div class="alert alert-danger" role="alert"><%= error_msg %></div>
+              <% });
+              } %>  
             <div id="name">
-                <input type="text" class="input-box-name" id="input-fname" required>
+                <input type="text" class="input-box-name" id="input-fname" name="fname" required>
                 </input>
                 <span class="placeholder-name" id="fname" name="fname" >First Name</span>
-                <input type="text" class="input-box-name" id="input-lname" required>
+                <input type="text" class="input-box-name" id="input-lname" name="lname" required>
                 </input>
                 <span class="placeholder-name" id="lname" name="lname">Last Name</span>
             </div>
@@ -79,11 +84,7 @@
                 <a id="closing-cfpassword" onclick="closing_cfpassword()">
                 </a>
             </div>
-            <% if (locals.register_error) { 
-                register_error.forEach(function(error_msg){ %>
-                <div class="alert alert-danger" role="alert"><%= error_msg %></div>
-              <% });
-              } %>
+            
             <div class="buttons">
                 <button class="button" type="submit" id="register-btn">
                     REGISTER

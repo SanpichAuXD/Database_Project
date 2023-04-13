@@ -1,26 +1,11 @@
-const express = require("express");
-const path = require("path");
-const cookieSession = require("cookie-session");
 const bcrypt = require("bcrypt");
-const pool = require("./database");
+const pool = require('../config');
+const express = require('express')
 const { body, validationResult } = require("express-validator");
 
-const app = express();
-app.use(express.urlencoded({ extended: false }));
-
-// SET OUR VIEWS AND VIEW ENGINE
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-
-app.use(
-    cookieSession({
-        name: "session",
-        keys: ["key1", "key2"],
-        maxAge: 3600 * 1000, // 1hr
-    })
-);
-
+router = express.Router();
 //declaring custome middleware
+
 const ifNotLoggedIn = (req, res, next) => {
     if (!req.session.isLoggedIn) {
         console.log('notloggedin',req.session.isLoggedIn);
@@ -36,7 +21,7 @@ const ifLoggedIn = (req, res, next) => {
     }
     next();
 };
-app.get("/", ifNotLoggedIn, async (req, res) => {
+router.get("/", ifNotLoggedIn, async (req, res) => {
     try {
         const [row, field] = await pool.query(
             "SELECT name FROM users WHERE id = ?",
@@ -51,7 +36,7 @@ app.get("/", ifNotLoggedIn, async (req, res) => {
 });
 
 //reg
-app.post(
+router.post(
     "/register",
     ifLoggedIn,
     [
@@ -60,7 +45,7 @@ app.post(
             .custom(async (value) => {
                 try {
                     const [rows] = await pool.execute(
-                        "SELECT `email` FROM `users` WHERE `email`=?",
+                        "SELECT `user_email` FROM `user` WHERE `user_email`=?",
                         [value]
                     );
                     if (rows.length > 0) {
@@ -88,14 +73,16 @@ app.post(
     .withMessage("Password Not Match"),
     ],
     (req, res, next) => {
+        console.log(req.body);
         const validation_result = validationResult(req);
-        const { user_name, user_pass, user_email } = req.body;
+        const { fname,lname, password,phone, email } = req.body;
         if (validation_result.isEmpty()) {
-            bcrypt.hash(user_pass, 12, async function (err, hash) {
+            bcrypt.hash(password, 12, async function (err, hash) {
                 try {
-                    const [row, field] = await pool.query(
-                        "INSERT INTO users(user_password, user_email, user_phone,user_lname) VALUES(?,?,?)",
-                        [user_name, user_email, hash]
+                    console.log(hash);
+                        const [row, field] = await pool.query(
+                        "INSERT INTO user(user_password, user_email, user_phone,user_fname,user_lname) VALUES(?,?,?,?,?)",
+                        [ hash,email,phone,fname,lname]
                     );
 
                     res.redirect("/login");
@@ -117,14 +104,14 @@ app.post(
     }
 );
 
-app.post(
-    "/login",
+router.post(
+    "/logging",
     ifLoggedIn,
     [
         body("user_email").custom(async (value) => {
             try {
                 const [row, field] = await pool.query(
-                    "SELECT email FROM users WHERE email = ?",
+                    "SELECT user_email FROM user WHERE user_email = ?",
                     [value]
                 );
                 if (row.length) {
@@ -143,16 +130,16 @@ app.post(
         if (validation_result.isEmpty()) {
             try {
                 const [row, field] = await pool.query(
-                    "SELECT * FROM users WHERE email = ?",
+                    "SELECT * FROM user WHERE user_email = ?",
                     [user_email]
                 );
                 bcrypt.compare(
                     user_pass,
-                    row[0].password,
+                    row[0].user_password,
                     function (err, isLogin) {
                         if (isLogin === true) {
                             req.session.isLoggedIn = true;
-                            req.session.userID = row[0].id;
+                            req.session.userID = row[0];
                             res.redirect("/");
                         } else {
                             res.render("login", {
@@ -175,16 +162,15 @@ app.post(
         }
     }
 );
-app.get('/logout',(req,res)=>{
+router.get('/logout',(req,res)=>{
     //session destroy
     req.session = null;
     res.redirect('/');
 });
 // END OF LOGOUT
 
-app.use('/', (req,res) => {
+router.use('/', (req,res) => {
     res.status(404).send('<h1>404 Page Not Found!</h1>');
 });
-app.listen(3000, () => {
-    console.log("server on port 3000");
-});
+
+exports.router = router

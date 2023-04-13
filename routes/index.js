@@ -8,6 +8,7 @@ router.get("/", async(req,res)=>{
     try {
        const [row,field] = await pool.query('SELECT * FROM user')
        console.log(row);
+       console.log(req.session);
     } catch (error) {
         console.log(error);
     }
