@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
-  <title>Admin Organization</title>
+  <title>Admin Manager</title>
 </head>
 
 <body>
@@ -47,16 +47,24 @@
   <!--main-->
   <div class="row p-3">
         <div class="col d-flex justify-content-end ">
-            <a  href="admin-manager-histroy.html" type="button" class="btn btn-outline-dark" id="history-btn">HISTORY</a>
+            <a href="admin-manager.html" type="button" class="btn btn-outline-dark" id="history-btn">REPORT FILTER</a>
         </div>
   </div>
 
   <div class="row p-3">
         <div class="col d-flex justify-content-center">
-            <h1>REPORT FILTER </h1>
+            <h1>HISTORY </h1>
         </div>
   </div>
-  <hr style="width: 30%; margin: auto; padding-bottom: 2em;">
+  <hr style="width: 30%; margin: auto">
+
+  <div class="row py-3">
+    <div class="col">
+      <button type="button" class="btn btn-outline-dark" id="">Accept</button>
+      <button type="button" class="btn btn-outline-dark" id="">Decline</button>
+    </div>
+  </div>
+
 
     <!--box-->
     <div class="row" id="main-box">
@@ -80,13 +88,15 @@
                     <div class="col-md-6"><b>DATE TIME:</b></div>
                     <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6"><b>STATUS:</b></div>
+                    <div class="col-md-6 ms-auto">
+                        <div class="shadow-sm  border border-2 p-1 mb-2 bg-white rounded">Pending</div>
+                    </div>
+                </div>
             </div>
-        
-            <div id="buttons" class="d-flex justify-content-center">
-              <button class="btn btn-success m-1">Accept</button>
-              <button type="button" class="btn btn-primary m-1" data-bs-target="#statusDescription1" data-bs-toggle="modal">View Details</button>
-              <button class="btn btn-danger m-1">Decline</button>
-            </div>
+            <button type="button" class="btn btn-primary" data-bs-target="#statusDescription1" data-bs-toggle="modal">View Details</button>
+                    
             <div class="modal fade" id="statusDescription1" tabindex="-1" aria-labelledby="statusDescriptionLabel1" aria-hidden="true"  style="overflow:auto;">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -194,12 +204,14 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <div class="p-1">
-                                <div id="buttons">
-                                  <button class="btn btn-success">Accept</button>
-                                  <button class="btn btn-primary">View Detail</button>
-                                  <button class="btn btn-danger">Decline</button>
+                            <div class="row">
+                                <div class="col-md-4 col-4"><b>Status:</b></div>
+                                <div class="col-md-8 col-8 ms-auto">
+                                    <div class="shadow-sm  border border-2 p-1 mb-2 bg-white rounded">Pending</div>
                                 </div>
+                            </div>
+                            <div class="p-1">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -209,11 +221,4 @@
   </div>
 
 </body>
-<!-- <script src="/static/js/admin-manager.js"></script> -->
-
-<!-- <div id="buttons">
-          <button class="btn btn-success">Accept</button>
-          <button class="btn btn-primary">View Detail</button>
-          <button class="btn btn-danger">Decline</button>
-</div> -->
-</html>
+</html> 
