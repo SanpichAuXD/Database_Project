@@ -39,6 +39,11 @@
                 <a id="closing-password" onclick="closing_password()">
                 </a>
             </div>
+            <% if (locals.login_errors) { 
+              login_errors.forEach(function(error_msg){ %>
+              <div class="alert alert-danger" role="alert"><%= error_msg %></div>
+            <% });
+            } %>
             <button type="submit" id="login-btn">
                 LOGIN
             </button>

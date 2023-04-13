@@ -28,7 +28,7 @@
             //let cpassword = cfpassword.value 
             
         </script>
-        <form class="register-container" >
+        <form class="register-container" method="POST" action="/register">
             <h1 id="register-title">
                 REGISTER
             </h1>
@@ -72,13 +72,15 @@
                 <a id="closing-cfpassword" onclick="closing_cfpassword()">
                 </a>
             </div>
+            <% if (locals.register_error) { 
+                register_error.forEach(function(error_msg){ %>
+                <div class="alert alert-danger" role="alert"><%= error_msg %></div>
+              <% });
+              } %>
             <div class="buttons">
                 <button class="button" type="submit" id="register-btn">
                     REGISTER
-                </button>
-                <button class="button" type="button" id="cancel-btn">
-                    CANCEL
-                </button>
+                </button> 
             </div>
         </form>
 </body>
