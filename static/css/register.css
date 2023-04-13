@@ -96,6 +96,12 @@
     background-image: url("https://cdn0.iconfinder.com/data/icons/social-circle-3/72/Email-256.png");
     background-size: 100% 100%;
 }
+
+#phone-img{
+    background-image: url("https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Whatsapp_glyph_svg-1024.png");
+    background-size: 100% 100%;
+}
+
 .placeholder{
     position: absolute;
     top: 13px;
