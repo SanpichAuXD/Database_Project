@@ -67,6 +67,186 @@
 
     <!--box-->
     <div class="row" id="main-box">
+        <!--First-->
+        <div class="col-4 col-md-3 col-lg-2 box active card p-3">
+            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+            <div class="detail"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!</p></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#status1">View Details</button>
+            <div class="modal fade" id="status1" tabindex="-1" aria-labelledby="statusModalLabel1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusModalLabel1">Status Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+                            <div class="container-fluid p-3">
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSER (User):</b></div>
+                                    <div class="col-md-6 ms-auto">ARM1234</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>COMPLIANT TYPE:</b></div>
+                                    <div class="col-md-6 ms-auto">Corruption</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSED:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>DATE TIME:</b></div>
+                                    <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>STATUS:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected value="0">Considering</option>
+                                            <option value="1">Pending</option>
+                                            <option value="2">Success</option>
+                                            <option value="3">Fail</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
+                            <button type="button" class="btn btn-primary" data-bs-target="#statusDescription1" data-bs-toggle="modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="statusDescription1" tabindex="-1" aria-labelledby="statusDescriptionLabel1" aria-hidden="true"  style="overflow:auto;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusDescriptionLabel1">Description</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid p-2">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Complant Type:</b></div>
+                                    <div class="col-md-6 ms-auto">I don't know</div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Accused:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>Details:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6 col-7">
+                                        <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
+                                    </div>
+                                    <div class="col-md-6 col-5">
+                                        <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>More Details:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-12 ms-auto">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Pictures:</b></div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Complainant Information:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-4 col-4"><b>Status:</b></div>
+                                <div class="col-md-8 col-8 ms-auto">
+                                    <select class="form-select float-start" aria-label="Default select example">
+                                        <option selected value="0">Considering</option>
+                                        <option value="1">Pending</option>
+                                        <option value="2">Success</option>
+                                        <option value="3">Fail</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success">Accept</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End-->
+
         <!--Second-->
         <div class="col-4 col-md-3 col-lg-2 box active card p-3">
             <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
@@ -118,9 +298,855 @@
                     </div>
                 </div>
             </div>
-
+            <div class="modal fade" id="statusDescription2" tabindex="-1" aria-labelledby="statusDescriptionLabel2" aria-hidden="true"  style="overflow:auto;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusDescriptionLabel2">Description</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid p-2">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Complant Type:</b></div>
+                                    <div class="col-md-6 ms-auto">I don't know2</div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Accused:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>Details:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6 col-7">
+                                        <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
+                                    </div>
+                                    <div class="col-md-6 col-5">
+                                        <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>More Details:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-12 ms-auto">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Pictures:</b></div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Complainant Information:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-4 col-4"><b>Status:</b></div>
+                                <div class="col-md-8 col-8 ms-auto">
+                                    <select class="form-select float-start" aria-label="Default select example">
+                                        <option selected value="0">Considering</option>
+                                        <option value="1">Pending</option>
+                                        <option value="2">Success</option>
+                                        <option value="3">Fail</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success">Accept</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>   <!--End-->
+        <!--End-->
+
+        <!--Third-->
+        <div class="col-4 col-md-3 col-lg-2 box active card p-3">
+            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+            <div class="detail"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!</p></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#status3">View Details</button>
+            <div class="modal fade" id="status3" tabindex="-1" aria-labelledby="statusModalLabel3" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusModalLabel3">Status Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+                            <div class="container-fluid p-3">
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSER (User):</b></div>
+                                    <div class="col-md-6 ms-auto">ARM1234</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>COMPLIANT TYPE:</b></div>
+                                    <div class="col-md-6 ms-auto">Corruption</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSED:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>DATE TIME:</b></div>
+                                    <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>STATUS:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected value="0">Considering</option>
+                                            <option value="1">Pending</option>
+                                            <option value="2">Success</option>
+                                            <option value="3">Fail</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
+                            <button type="button" class="btn btn-primary" data-bs-target="#statusDescription3" data-bs-toggle="modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="statusDescription3" tabindex="-1" aria-labelledby="statusDescriptionLabel3" aria-hidden="true"  style="overflow:auto;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusDescriptionLabel3">Description</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid p-2">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Complant Type:</b></div>
+                                    <div class="col-md-6 ms-auto">I don't know3</div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Accused:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>Details:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6 col-7">
+                                        <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
+                                    </div>
+                                    <div class="col-md-6 col-5">
+                                        <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>More Details:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-12 ms-auto">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Pictures:</b></div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Complainant Information:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-4 col-4"><b>Status:</b></div>
+                                <div class="col-md-8 col-8 ms-auto">
+                                    <select class="form-select float-start" aria-label="Default select example">
+                                        <option selected value="0">Considering</option>
+                                        <option value="1">Pending</option>
+                                        <option value="2">Success</option>
+                                        <option value="3">Fail</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success">Accept</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End-->
+
+        <!--Forth-->
+        <div class="col-4 col-md-3 col-lg-2 box active card p-3">
+            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+            <div class="detail"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!</p></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#status4">View Details</button>
+            <div class="modal fade" id="status4" tabindex="-1" aria-labelledby="statusModalLabel4" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusModalLabel4">Status Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+                            <div class="container-fluid p-3">
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSER (User):</b></div>
+                                    <div class="col-md-6 ms-auto">ARM1234</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>COMPLIANT TYPE:</b></div>
+                                    <div class="col-md-6 ms-auto">Corruption</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSED:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>DATE TIME:</b></div>
+                                    <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>STATUS:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected value="0">Considering</option>
+                                            <option value="1">Pending</option>
+                                            <option value="2">Success</option>
+                                            <option value="3">Fail</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
+                            <button type="button" class="btn btn-primary" data-bs-target="#statusDescription4" data-bs-toggle="modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="statusDescription4" tabindex="-1" aria-labelledby="statusDescriptionLabel4" aria-hidden="true"  style="overflow:auto;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusDescriptionLabel4">Description</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid p-2">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Complant Type:</b></div>
+                                    <div class="col-md-6 ms-auto">I don't know4</div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Accused:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>Details:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6 col-7">
+                                        <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
+                                    </div>
+                                    <div class="col-md-6 col-5">
+                                        <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>More Details:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-12 ms-auto">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Pictures:</b></div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Complainant Information:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-4 col-4"><b>Status:</b></div>
+                                <div class="col-md-8 col-8 ms-auto">
+                                    <select class="form-select float-start" aria-label="Default select example">
+                                        <option selected value="0">Considering</option>
+                                        <option value="1">Pending</option>
+                                        <option value="2">Success</option>
+                                        <option value="3">Fail</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success">Accept</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End-->
+
+        <!--Fifth-->
+        <div class="col-4 col-md-3 col-lg-2 box active card p-3">
+            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+            <div class="detail"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!</p></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#status5">View Details</button>
+            <div class="modal fade" id="status5" tabindex="-1" aria-labelledby="statusModalLabel5" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusModalLabel5">Status Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+                            <div class="container-fluid p-3">
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSER (User):</b></div>
+                                    <div class="col-md-6 ms-auto">ARM1234</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>COMPLIANT TYPE:</b></div>
+                                    <div class="col-md-6 ms-auto">Corruption</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSED:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>DATE TIME:</b></div>
+                                    <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>STATUS:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected value="0">Considering</option>
+                                            <option value="1">Pending</option>
+                                            <option value="2">Success</option>
+                                            <option value="3">Fail</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
+                            <button type="button" class="btn btn-primary" data-bs-target="#statusDescription5" data-bs-toggle="modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="statusDescription5" tabindex="-1" aria-labelledby="statusDescriptionLabel5" aria-hidden="true"  style="overflow:auto;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusDescriptionLabel5">Description</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid p-2">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Complant Type:</b></div>
+                                    <div class="col-md-6 ms-auto">I don't know5</div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Accused:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>Details:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6 col-7">
+                                        <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
+                                    </div>
+                                    <div class="col-md-6 col-5">
+                                        <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>More Details:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-12 ms-auto">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Pictures:</b></div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Complainant Information:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-4 col-4"><b>Status:</b></div>
+                                <div class="col-md-8 col-8 ms-auto">
+                                    <select class="form-select float-start" aria-label="Default select example">
+                                        <option selected value="0">Considering</option>
+                                        <option value="1">Pending</option>
+                                        <option value="2">Success</option>
+                                        <option value="3">Fail</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success">Accept</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End-->
+
+        <!--Sixth-->
+        <div class="col-4 col-md-3 col-lg-2 box active card p-3">
+            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+            <div class="detail"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!</p></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#status6">View Details</button>
+            <div class="modal fade" id="status6" tabindex="-1" aria-labelledby="statusModalLabel6" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusModalLabel6">Status Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+                            <div class="container-fluid p-3">
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSER (User):</b></div>
+                                    <div class="col-md-6 ms-auto">ARM1234</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>COMPLIANT TYPE:</b></div>
+                                    <div class="col-md-6 ms-auto">Corruption</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>ACCUSED:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>DATE TIME:</b></div>
+                                    <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>STATUS:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected value="0">Considering</option>
+                                            <option value="1">Pending</option>
+                                            <option value="2">Success</option>
+                                            <option value="3">Fail</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Accept</button>
+                            <button type="button" class="btn btn-primary" data-bs-target="#statusDescription6" data-bs-toggle="modal">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="statusDescription6" tabindex="-1" aria-labelledby="statusDescriptionLabel6" aria-hidden="true"  style="overflow:auto;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="statusDescriptionLabel6">Description</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid p-2">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Complant Type:</b></div>
+                                    <div class="col-md-6 ms-auto">I don't know6</div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6"><b>Accused:</b></div>
+                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><b>Details:</b></div>
+                                    <div class="col-md-6 ms-auto">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div class="col-md-6 col-7">
+                                        <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
+                                    </div>
+                                    <div class="col-md-6 col-5">
+                                        <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>More Details:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-12 ms-auto">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Pictures:</b></div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-4 p-1">
+                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                <div class="row">
+                                    <div><b>Complainant Information:</b></div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-4 col-4"><b>Status:</b></div>
+                                <div class="col-md-8 col-8 ms-auto">
+                                    <select class="form-select float-start" aria-label="Default select example">
+                                        <option selected value="0">Considering</option>
+                                        <option value="1">Pending</option>
+                                        <option value="2">Success</option>
+                                        <option value="3">Fail</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="p-1">
+                                <button type="button" class="btn btn-success">Accept</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End-->
+    </div>
 </body>
 
 </html>
