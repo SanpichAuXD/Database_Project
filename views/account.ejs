@@ -13,10 +13,11 @@
 </head>
 <body>
     <%- include('navbar') -%>
+    <div>
     <div class="row pt-4">
         <div class="col-4">
             <div class="row p-5 leftbox" id="box" onclick="switchPage(1)"><div class="col"><h3>Account Detail</h3></div></div>
-            <div class="row p-5 leftbox" id="box" onclick="switchPage(2)"><div class="col"><h3>Reset Password</h3></div></div>
+            <!-- <div class="row p-5 leftbox" id="box" onclick="switchPage(2)"><div class="col"><h3>Reset Password</h3></div></div> -->
             <div class="row p-5 leftbox" id="box" onclick="switchPage(3)"><div class="col"><h3>Report History</h3></div></div>
             <div class="row p-5 leftbox" id="spbox" onclick=""><div class="col"><h3>Logout</h3></div></div>
         </div>
@@ -69,10 +70,155 @@
                 index
             </div>
             <div class="container p-2" id="page-3">
-                HTML
+                <table id="probTable" class="table table-hover">
+                    <thead style="background-color: #B88A64; color:white; border-radius:15px; font-size:1.3vw">
+                        <tr class="rounded">
+                            <th scope="col" class="px-3">Id</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Type</th>
+                            <th scope="col" colspan="2">Email</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Detail</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size:1.2vw;">
+                        <tr>
+                            <th scope="row">17</th>
+                            <td>Mark1</td>
+                            <td>Deserted Area</td>
+                            <td colspan="2">mark@mail.com</td>
+                            <td>22/3/2023</td>
+                            <td>Area 52</td>
+                            <td><!-- Button trigger modal -->
+                                <button type="button" class="btn"
+                                    style="background-color: #DDB892; font-size:1.3vw; color:white" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    View Detail
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2>Prob title</h2>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Detail 1</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                        value="sdaasdad" disabled>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Detail 2</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                        value="sdaasdad" disabled>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Detail 3</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                        value="sdaasdad" disabled>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Example
+                                                        textarea</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                                        disabled>sadasdasdasdasdasdasdadsasdasd</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+    
+                                    <option value="Pending">Pending</option>
+                                    <option value="Success">Success</option>
+                                    <option value="Failed">Failed</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">17</th>
+                            <td>Test</td>
+                            <td>Deserted Eagle</td>
+                            <td colspan="2">mark@mail.com</td>
+                            <td>22/3/2023</td>
+                            <td>KMITL</td>
+                            <td><!-- Button trigger modal -->
+                                <button type="button" class="btn" style="font-size:1.3vw" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    View Detail
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h2>Prob title</h2>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Detail 1</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                        value="sdaasdad" disabled>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Detail 2</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                        value="sdaasdad" disabled>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Detail 3</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                                        value="sdaasdad" disabled>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Example
+                                                        textarea</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                        rows="3">sadasdasdasdasdasdasdadsasdasd</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <select class="form-select" aria-label="Default select example">
+    
+                                    <option value="Pending">Pending</option>
+                                    <option value="Success">Success</option>
+                                    <option value="Failed">Failed</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+    <%- include('footer') -%>
     
     <script>
         const profilePage = document.getElementById("page-1");
@@ -86,11 +232,13 @@
                 profilePage.style.display = "block";
                 resetPassword.style.display = "none";
                 reportHistory.style.display = "none";
-            } else if (page == 2) {
+            }
+             else if (page == 2) {
                 profilePage.style.display = "none";
                 resetPassword.style.display = "block";
                 reportHistory.style.display = "none";
-            } else if (page == 3) {
+            }
+             else if (page == 3) {
                 profilePage.style.display = "none";
                 resetPassword.style.display = "none";
                 reportHistory.style.display = "block";

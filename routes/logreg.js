@@ -45,7 +45,7 @@ router.post(
             .custom(async (value) => {
                 try {
                     const [rows] = await pool.execute(
-                        "SELECT `user_email` FROM `user` WHERE `user_email`=?",
+                        "SELECT `admin_email` FROM `admin` WHERE `admin_email`=?",
                         [value]
                     );
                     if (rows.length > 0) {
@@ -81,7 +81,7 @@ router.post(
                 try {
                     console.log(hash);
                         const [row, field] = await pool.query(
-                        "INSERT INTO user(user_password, user_email, user_phone,user_fname,user_lname) VALUES(?,?,?,?,?)",
+                        "INSERT INTO admin(admin_password, admin_email, admin_phone,admin_fname,admin_lname) VALUES(?,?,?,?,?)",
                         [ hash,email,phone,fname,lname]
                     );
 
@@ -114,7 +114,11 @@ router.post(
                     "SELECT user_email FROM user WHERE user_email = ?",
                     [value]
                 );
-                if (row.length) {
+                const [row2, field2] = await pool.query(
+                    "SELECT admin_email FROM admin WHERE admin_email = ?",
+                    [value]
+                );
+                if (row.length || row2.length) {
                     return true;
                 }
                 return Promise.reject("Invalid Email Address!");
@@ -129,17 +133,33 @@ router.post(
         const { user_pass, user_email } = req.body;
         if (validation_result.isEmpty()) {
             try {
-                const [row, field] = await pool.query(
+                const [row1, field] = await pool.query(
                     "SELECT * FROM user WHERE user_email = ?",
                     [user_email]
                 );
+                const [row2, field2] = await pool.query(
+                    "SELECT * FROM admin WHERE admin_email = ?",
+                    [user_email]
+                );
+                let row;
+                let user;
+                if (row1.length>0){
+                    row = row1[0].user_password
+                    user = row1[0]
+                }
+                else if (row2.length>0){
+                    row = row2[0].admin_password
+                    user = row2[0]
+                }
+                console.log(row);
                 bcrypt.compare(
                     user_pass,
-                    row[0].user_password,
+                    row,
                     function (err, isLogin) {
+                        console.log('login',isLogin);
                         if (isLogin === true) {
                             req.session.isLoggedIn = true;
-                            req.session.userID = row[0];
+                            req.session.userID = user;
                             res.redirect("/");
                         } else {
                             res.render("login", {
@@ -169,8 +189,8 @@ router.get('/logout',(req,res)=>{
 });
 // END OF LOGOUT
 
-router.use('/', (req,res) => {
-    res.status(404).send('<h1>404 Page Not Found!</h1>');
-});
+// router.use('/', (req,res) => {
+//     res.status(404).send('<h1>404 Page Not Found!</h1>');
+// });
 
 exports.router = router

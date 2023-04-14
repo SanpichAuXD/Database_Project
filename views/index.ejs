@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
@@ -15,271 +15,186 @@
 
   <title>Call-Sing</title>
 </head>
+
 <body>
   <%- include('navbar') -%>
 
-  <!--intro-->
-
-  <!--outer-->
-  <div class="d-flex align-items-center justify-content-center" style="background-color: #7f5539; height: 750px; width: 100%;">
-    <!--middle-->
-    <div class="d-flex justify-content-center wrap" style="width: 100%; height: 250px;">
-      <!--inner-->
-      <div class="h-full" style="width: 300px;">
-        <!--text-->
-        <div class="text-center mt-4" style="color: whitesmoke;">
-          <p style="font-size: 50px;">Call Sing</p>
-          <p>Scroll down</p>
-        </div>
-        <!--arrow-->
-        <div class="d-flex justify-content-center w-full" style="height: 100px;">
-          <div style=" width: 100px; height: 100px;">
-            <svg id="arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="white" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-            </svg>
+    <!--intro-->
+    <div>
+    <!--outer-->
+    <div class="d-flex align-items-center justify-content-center"
+      style="background-color: #7f5539; height: 750px; width: 100%;">
+      <!--middle-->
+      <div class="d-flex justify-content-center wrap" style="width: 100%; height: 250px;">
+        <!--inner-->
+        <div class="h-full" style="width: 300px;">
+          <!--text-->
+          <div class="text-center mt-4" style="color: whitesmoke;">
+            <p style="font-size: 50px;">Call Sing</p>
+            <p>Scroll down</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!--information-->
-
-  <div class="d-flex justify-content-center" style="width: 100%; height: auto; background-color: #9c6644;">
-    <div class="h-full d-flex justify-content-center mt-5" style=" width: 800px;">
-      <div style="height: auto; width: 100%;">
-        <div class="topic text-center">
-          <h1 class="fs-1">INFORMATION</h1>
-          <p class="fs-3">จากสถิติข้อมูลการร้องเรียนออนไลน์ใน 10ปี ที่ผ่านมาจะพบว่า มีการร้องเรียนออนไลน์มากถึง 39,711
-            คดี โดยปี 2561 มีการร้องเรียนออนไลน์ถึง 4,335 คดี
-            โดยแจกแจงดังนี้
-          </p>
-        </div>
-        <div class="container text-center d-flex justify-content-center">
-          <div class="row">
-            <div class="col-12 col-sm-4">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/101.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>ด้านความมั่นคง</p>
-                  <p>62.42%</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-4">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/102.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>ด้านสังคม</p>
-                  <p>23.02%</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-4">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2 img-fluid" style="width: 100%; height: 150px;">
-                  <img src="./img/103.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>ด้านเศรษฐกิจ</p>
-                  <p>12.94%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container text-center d-flex justify-content-center">
-          <div class="row">
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/104.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>ส่วนราชการไม่สังกัดกระทรวง</p>
-                  <p>1.20%</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/105.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>องค์กรอิสระตามรัฐธรรมนูญ</p>
-                  <p>0.42%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2 class="text-center">สัดส่วนของกระทรวงหลักที่มีส่วนเกี่ยวข้อง</h2>
-
-        <div class="container text-center d-flex justify-content-center">
-          <div class="row">
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/204.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>กระทรวงมหาดไทย</p>
-                  <p>65%</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/205.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>กระทรวงศึกษาธิการ</p>
-                  <p>14%</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/206.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>กระทรวงสาธารณสุข</p>
-                  <p>5%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container text-center d-flex justify-content-center">
-          <div class="row">
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/203.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>กระทรวงวิทย์</p>
-                  <p>0.16%</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/202.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>องค์กรอิสระตามรัฐธรรมนูญ</p>
-                  <p>0.10%</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="contain h-full" style="width: 200px;">
-                <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
-                  <img src="./img/201.png">
-                </div>
-                <div class="text-center mt-2 fs-3">
-                  <p>กระทรวงต่างประเทศ</p>
-                  <p>0.03%</p>
-                </div>
-              </div>
+          <!--arrow-->
+          <div class="d-flex justify-content-center w-full" style="height: 100px;">
+            <div style=" width: 100px; height: 100px;">
+              <svg id="arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="white" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
+              </svg>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--type-->
 
-  <div class="d-flex justify-content-center" style="height: auto; width: 100%; background-color: #ddb892;">
-    <div class="wrapper mt-4" style="width: 100%; height: auto;">
-      <h1 class="fs-1 text-center">สามารถร้องเรียนเรื่องใดได้บ้าง</h1>
-      <div class="type container d-flex mt-4 mb-3 justify-content-center p-5" style="height: auto; width:100%;">
-        <div class="row mt-3">
-          <div class="col col-sm-6">
-            <div class="container text-center">
-              <div class="row">
-                <div class="col">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/301.png" class="img-fluid">
-                    </div>
-                    <p class="fs-5  ml-4 mt-4">พื้นที่เปลี่ยว</p>
+    <!--information-->
+
+    <div class="d-flex justify-content-center" style="width: 100%; height: auto; background-color: #9c6644;">
+      <div class="h-full d-flex justify-content-center mt-5" style=" width: 800px;">
+        <div style="height: auto; width: 100%;">
+          <div class="topic text-center">
+            <h1 class="fs-1">INFORMATION</h1>
+            <p class="fs-3">จากสถิติข้อมูลการร้องเรียนออนไลน์ใน 10ปี ที่ผ่านมาจะพบว่า มีการร้องเรียนออนไลน์มากถึง 39,711
+              คดี โดยปี 2561 มีการร้องเรียนออนไลน์ถึง 4,335 คดี
+              โดยแจกแจงดังนี้
+            </p>
+          </div>
+          <div class="container text-center d-flex justify-content-center">
+            <div class="row">
+              <div class="col-12 col-sm-4">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/101.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>ด้านความมั่นคง</p>
+                    <p>62.42%</p>
                   </div>
                 </div>
-                <div class="col-12 mt-3">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/308.png" class="img-fluid">
-                    </div>
-                    <p class="fs-5  ml-4 mt-4">พื้นที่ชํารุด</p>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/102.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>ด้านสังคม</p>
+                    <p>23.02%</p>
                   </div>
                 </div>
-                <div class="col-12 mt-3">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/302.png" class="img-fluid" ">
-                    </div>
-                    <p class="fs-5  ml-4 mt-4">พื้นที่ผิดกฎหมาย</p>
+              </div>
+              <div class="col-12 col-sm-4">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2 img-fluid" style="width: 100%; height: 150px;">
+                    <img src="./img/103.png">
                   </div>
-                </div>
-                <div class="col-12 mt-3">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/303.png" class="img-fluid">
-                    </div>
-                    <p class="fs-5  ml-4 mt-4">อบายมุข</p>
+                  <div class="text-center mt-2 fs-3">
+                    <p>ด้านเศรษฐกิจ</p>
+                    <p>12.94%</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col col-sm-6">
-            <div class="container text-center">
-              <div class="row">
-                <div class="col-12">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/304.png" class="img-fluid">
-                    </div>
-                    <p class="fs-5 ml-4 mt-4">ผู้กระทําผิดทางจราจร</p>
+          <div class="container text-center d-flex justify-content-center">
+            <div class="row">
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/104.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>ส่วนราชการไม่สังกัดกระทรวง</p>
+                    <p>1.20%</p>
                   </div>
                 </div>
-                <div class="col-12 mt-3">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/305.png" class="img-fluid">
-                    </div>
-                    <p class="fs-5 ml-4 mt-4">สินค้าไม่ได้มาตรฐาน</p>
+              </div>
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/105.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>องค์กรอิสระตามรัฐธรรมนูญ</p>
+                    <p>0.42%</p>
                   </div>
                 </div>
-                <div class="col-12 mt-3">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/306.png" class="img-fluid">
-                    </div>
-                    <p class="fs-5 ml-4 mt-4">ทุจริต/คอรัปชั่น</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="text-center">สัดส่วนของกระทรวงหลักที่มีส่วนเกี่ยวข้อง</h2>
+
+          <div class="container text-center d-flex justify-content-center">
+            <div class="row">
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/204.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>กระทรวงมหาดไทย</p>
+                    <p>65%</p>
                   </div>
                 </div>
-                <div class="col-12 mt-3">
-                  <div class="container d-flex" style="width: 100%; height: 90px; ">
-                    <div class="contain h-full me-5" style="width: 80px;">
-                      <img src="./img/307.png" class="img-fluid">
-                    </div>
-                    <p class="fs-5 ml-4 mt-4">อื่น ๆ</p>
+              </div>
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/205.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>กระทรวงศึกษาธิการ</p>
+                    <p>14%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/206.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>กระทรวงสาธารณสุข</p>
+                    <p>5%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container text-center d-flex justify-content-center">
+            <div class="row">
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/203.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>กระทรวงวิทย์</p>
+                    <p>0.16%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/202.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>องค์กรอิสระตามรัฐธรรมนูญ</p>
+                    <p>0.10%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="contain h-full" style="width: 200px;">
+                  <div class="top d-flex justify-content-center mt-2" style="width: 100%; height: 150px;">
+                    <img src="./img/201.png">
+                  </div>
+                  <div class="text-center mt-2 fs-3">
+                    <p>กระทรวงต่างประเทศ</p>
+                    <p>0.03%</p>
                   </div>
                 </div>
               </div>
@@ -288,82 +203,173 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <!--how to-->
-  <div class="d-flex justify-content-center" style="height: 400px; width: 100%; background-color: #e6ccb2;">
-    <div class="wrapper mt-4" style="width: 750px; height: auto;">
-      <h1 class="fs-1 text-center">ขั้นตอนในการทําเรื่องร้องเรียน</h1>
-      <div class="container">
-        <div class="row mt-4 justify-content-center">
-          <div class="col-3">
-            <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
-              <img src="./img/401.png" style="width: 100%; height: 100%;">
+    <!--type-->
+
+    <div class="d-flex justify-content-center" style="height: auto; width: 100%; background-color: #ddb892;">
+      <div class="wrapper mt-4" style="width: 100%; height: auto;">
+        <h1 class="fs-1 text-center">สามารถร้องเรียนเรื่องใดได้บ้าง</h1>
+        <div class="type container d-flex mt-4 mb-3 justify-content-center p-5" style="height: auto; width:100%;">
+          <div class="row mt-3">
+            <div class="col col-sm-6">
+              <div class="container text-center">
+                <div class="row">
+                  <div class="col">
+                    <div class="container d-flex" style="width: 100%; height: 90px; ">
+                      <div class="contain h-full me-5" style="width: 80px;">
+                        <img src="./img/301.png" class="img-fluid">
+                      </div>
+                      <p class="fs-5  ml-4 mt-4">พื้นที่เปลี่ยว</p>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-3">
+                    <div class="container d-flex" style="width: 100%; height: 90px; ">
+                      <div class="contain h-full me-5" style="width: 80px;">
+                        <img src="./img/308.png" class="img-fluid">
+                      </div>
+                      <p class="fs-5  ml-4 mt-4">พื้นที่ชํารุด</p>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-3">
+                    <div class="container d-flex" style="width: 100%; height: 90px; ">
+                      <div class="contain h-full me-5" style="width: 80px;">
+                        <img src="./img/302.png" class="img-fluid" ">
+                    </div>
+                    <p class=" fs-5 ml-4 mt-4">พื้นที่ผิดกฎหมาย</p>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="container d-flex" style="width: 100%; height: 90px; ">
+                        <div class="contain h-full me-5" style="width: 80px;">
+                          <img src="./img/303.png" class="img-fluid">
+                        </div>
+                        <p class="fs-5  ml-4 mt-4">อบายมุข</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-sm-6">
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="container d-flex" style="width: 100%; height: 90px; ">
+                        <div class="contain h-full me-5" style="width: 80px;">
+                          <img src="./img/304.png" class="img-fluid">
+                        </div>
+                        <p class="fs-5 ml-4 mt-4">ผู้กระทําผิดทางจราจร</p>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="container d-flex" style="width: 100%; height: 90px; ">
+                        <div class="contain h-full me-5" style="width: 80px;">
+                          <img src="./img/305.png" class="img-fluid">
+                        </div>
+                        <p class="fs-5 ml-4 mt-4">สินค้าไม่ได้มาตรฐาน</p>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="container d-flex" style="width: 100%; height: 90px; ">
+                        <div class="contain h-full me-5" style="width: 80px;">
+                          <img src="./img/306.png" class="img-fluid">
+                        </div>
+                        <p class="fs-5 ml-4 mt-4">ทุจริต/คอรัปชั่น</p>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="container d-flex" style="width: 100%; height: 90px; ">
+                        <div class="contain h-full me-5" style="width: 80px;">
+                          <img src="./img/307.png" class="img-fluid">
+                        </div>
+                        <p class="fs-5 ml-4 mt-4">อื่น ๆ</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="fs-5 mt-4 text-center">ไปที่หน้า ทําเรื่องร้องเรียน</p>
-          </div>
-
-          <div class="col-3">
-
-            <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
-              <img src="./img/402.png" style="width: 100%; height: 100%;">
-            </div>
-            <p class="fs-5 mt-4 text-center">เลือกประเภทที่ต้องการร้องเรียน</p>
-          </div>
-
-          <div class="col-3">
-
-            <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
-              <img src="./img/403.png" style="width: 100%; height: 100%;">
-            </div>
-            <p class="fs-5 mt-4 text-center">กรอกข้อมูลตามท่ีกําหนดไว้</p>
-          </div>
-
-          <div class="col-3">
-
-            <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
-              <img src="./img/404.png" style="width: 100%; height: 100%;">
-            </div>
-            <p class="fs-5 mt-4 text-center">เสร็จสิ้น</p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!--เหมาะกับใคร-->
-  <div class="d-flex justify-content-center" style="height: 420px; width: 100%; background-color: #ede0d4;">
-    <div class="wrapper mt-4" style="width: 750px; height: auto;">
-      <h1 class="fs-1 text-center">เหมาะสําหรับใคร</h1>
-      <div class="container">
-        <div class="row mt-4">
-          <div class="col-4">
-            <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
-              <img src="./img/501.png" style="width: 100%; height: 100%;">
+      <!--how to-->
+      <div class="d-flex justify-content-center" style="height: 400px; width: 100%; background-color: #e6ccb2;">
+        <div class="wrapper mt-4" style="width: 750px; height: auto;">
+          <h1 class="fs-1 text-center">ขั้นตอนในการทําเรื่องร้องเรียน</h1>
+          <div class="container">
+            <div class="row mt-4 justify-content-center">
+              <div class="col-3">
+                <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
+                  <img src="./img/401.png" style="width: 100%; height: 100%;">
+                </div>
+                <p class="fs-5 mt-4 text-center">ไปที่หน้า ทําเรื่องร้องเรียน</p>
+              </div>
+
+              <div class="col-3">
+
+                <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
+                  <img src="./img/402.png" style="width: 100%; height: 100%;">
+                </div>
+                <p class="fs-5 mt-4 text-center">เลือกประเภทที่ต้องการร้องเรียน</p>
+              </div>
+
+              <div class="col-3">
+
+                <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
+                  <img src="./img/403.png" style="width: 100%; height: 100%;">
+                </div>
+                <p class="fs-5 mt-4 text-center">กรอกข้อมูลตามท่ีกําหนดไว้</p>
+              </div>
+
+              <div class="col-3">
+
+                <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
+                  <img src="./img/404.png" style="width: 100%; height: 100%;">
+                </div>
+                <p class="fs-5 mt-4 text-center">เสร็จสิ้น</p>
+              </div>
             </div>
-            <p class="fs-5 mt-4 text-center">ผู้ที่ไม่มีเวลาไปสํานักงาน</p>
           </div>
-
-          <div class="col-4">
-
-            <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
-              <img src="./img/502.png" style="width: 100%; height: 100%;">
-            </div>
-            <p class="fs-5 mt-4 text-center">ผู้ที่อยู่ไกลจากสํานักงาน</p>
-          </div>
-
-          <div class="col-4">
-
-            <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
-              <img src="./img/503.png" style="width: 100%; height: 100%;">
-            </div>
-            <p class="fs-5 mt-4 text-center">ผู้ที่ต้องการความสะดวกในการร้องเรียน</p>
-          </div>
-
         </div>
       </div>
+
+      <!--เหมาะกับใคร-->
+      <div class="d-flex justify-content-center" style="height: 420px; width: 100%; background-color: #ede0d4;">
+        <div class="wrapper mt-4" style="width: 750px; height: auto;">
+          <h1 class="fs-1 text-center">เหมาะสําหรับใคร</h1>
+          <div class="container">
+            <div class="row mt-4">
+              <div class="col-4">
+                <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
+                  <img src="./img/501.png" style="width: 100%; height: 100%;">
+                </div>
+                <p class="fs-5 mt-4 text-center">ผู้ที่ไม่มีเวลาไปสํานักงาน</p>
+              </div>
+
+              <div class="col-4">
+
+                <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
+                  <img src="./img/502.png" style="width: 100%; height: 100%;">
+                </div>
+                <p class="fs-5 mt-4 text-center">ผู้ที่อยู่ไกลจากสํานักงาน</p>
+              </div>
+
+              <div class="col-4">
+
+                <div class="contain h-full d-flex justify-content-center" style="width: 100%;">
+                  <img src="./img/503.png" style="width: 100%; height: 100%;">
+                </div>
+                <p class="fs-5 mt-4 text-center">ผู้ที่ต้องการความสะดวกในการร้องเรียน</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
-  </div>
+    <%- include('footer') -%>
+
 </body>
 
 </html>

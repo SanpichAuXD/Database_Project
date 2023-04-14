@@ -29,14 +29,14 @@
             
         </script>
         <form class="register-container" method="POST" action="/register">
-            <h1 id="register-title">
-                REGISTER
-            </h1>
             <% if (locals.register_error) { 
                 register_error.forEach(function(error_msg){ %>
                 <div class="alert alert-danger" role="alert"><%= error_msg %></div>
               <% });
               } %>  
+            <h1 id="register-title">
+                REGISTER
+            </h1>
             <div id="name">
                 <input type="text" class="input-box-name" id="input-fname" name="fname" required>
                 </input>
@@ -91,5 +91,6 @@
                 </button> 
             </div>
         </form>
+        <%- include('footer') -%>
 </body>
 </html>

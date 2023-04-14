@@ -14,7 +14,7 @@
     background-color: #e6ccb2;
     border-radius: 100px;
     margin: auto;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     z-index: 0;
     display: block;
     text-align: center;
@@ -98,7 +98,7 @@
 }
 
 #phone-img{
-    background-image: url("https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Whatsapp_glyph_svg-1024.png");
+    background-image: url("https://cdn2.iconfinder.com/data/icons/social-media-2151/512/21_Media_social_website_phone-256.png");
     background-size: 100% 100%;
 }
 
@@ -273,4 +273,14 @@
         height: 90px;
         margin-bottom: -45px;
     }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
