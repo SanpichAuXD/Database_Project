@@ -15,33 +15,44 @@ var storage = multer.diskStorage({
   })
   const upload = multer({ storage: storage })
 router.post('/sendprob',
- upload.single('prob_img'),
+ upload.array('prob_img'),
   async(req,res,next)=>{
-    const file = req.file
-    console.log(req.file);
-    if (!file) {
+    const files = req.files
+    console.log('sad',req.files);
+    if (!files) {
         
         return res.send('NO FILE IDIOT')
       }
-    const  { type, address,province, district, subdistrict, date, desc} = req.body
+    const  { type, address,province, district, subdistrict, date, desc,accused,accused_detail} = req.body
+    const user = req.session.userID
+    console.log(req.body);
     const conn = await pool.getConnection()
     // Begin transaction
     await conn.beginTransaction();
 
     try {
-      let results = await conn.query(
+      let addLo = await conn.query(
         "INSERT INTO location(street_address,province,district,sub_district) VALUES(?,?,?,?);",
         [address,province,district,subdistrict]
       )
-      const locaId = results[0].insertId;
+      const locaId = addLo[0].insertId;
+      let addAccused = await conn.query(
+        "INSERT INTO accused(accused_type,accused_detail) VALUES(?,?);",
+        [accused,accused_detail]
+      )
+      const accuId = addAccused[0].insertId;
       let results2 = await conn.query(
-        "INSERT INTO problem_info(user_id,type_id,prob_time,location_id,prob_detail,prob_status) VALUES(1,?,?,?,?,?)",
-        [type,date,locaId,desc,'Pending']
+        "INSERT INTO problem_info(user_id,type_id,prob_time,location_id,prob_detail,prob_status,accused_id) VALUES(1,?,?,?,?,?,?)",
+        [type,date,locaId,desc,'Pending',accuId]
       )  
       const probId = results2[0].insertId
-      await conn.query(
-        "INSERT INTO prob_image( img_link,prob_id) VALUES(?, ?);",
-        [ file.path.substr(6), probId,])
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        await conn.query(
+          "INSERT INTO prob_image (img_link, prob_id) VALUES (?, ?);",
+          [file.path.substr(6), probId]
+        );
+      }
 
       await conn.commit()
       res.redirect('/')
