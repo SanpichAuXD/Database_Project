@@ -11,25 +11,28 @@
   <!--Header-->
   <nav class="navbar navbar-dark navbar-expand-lg p-3 h4 m-auto" style="background-color:#7f5539;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html"><p class="h4 p-0 m-0">Icon</p></a>
+      <a class="navbar-brand" href="/"><p class="h4 p-0 m-0">Icon</p></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/repform">Report</a></li>
-          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/acc">Account</a></li>
-          
-          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/admin">Admin</a></li>
-          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/adminhis">AdminHis</a></li>
+          <% if (user && !isAdmin) { %>
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/repform">Report</a></li>
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/acc">Account</a></li>
+          <% } %>
+          <% if (user && isAdmin) { %>
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/acc">Account</a></li>  
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/admin">Admin</a></li>
           <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/adminorg">AdminOrg</a></li>
+            <% } %>
+          
           <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/chart">Chart</a></li>
          
         </ul>
         <ul class="navbar-nav ">
           <% if (user) { %>
-            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/account"><%= user.user_fname %><%= user.admin_fname %></a></li>
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/acc"><%= user.user_fname %><%= user.admin_fname %></a></li>
             <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/logout">Logout</a></li>
           <% } 
           else{ %>  

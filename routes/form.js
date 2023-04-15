@@ -18,14 +18,14 @@ router.post('/sendprob',
  upload.array('prob_img'),
   async(req,res,next)=>{
     const files = req.files
-    console.log('sad',req.files);
+    // console.log('sad',req.files);
     if (!files) {
         
         return res.send('NO FILE IDIOT')
       }
     const  { type, address,province, district, subdistrict, date, desc,accused,accused_detail} = req.body
     const user = req.session.userID
-    console.log(req.body);
+    // console.log(req.body);
     const conn = await pool.getConnection()
     // Begin transaction
     await conn.beginTransaction();
@@ -40,11 +40,10 @@ router.post('/sendprob',
         "INSERT INTO accused(accused_type,accused_detail) VALUES(?,?);",
         [accused,accused_detail]
       )
-      console.log(req.session.userID.user_id);
       const accuId = addAccused[0].insertId;
       let results2 = await conn.query(
         "INSERT INTO problem_info(user_id,type_id,prob_time,location_id,prob_detail,prob_status,accused_id) VALUES(?,?,?,?,?,?,?)",
-        [req.session.userID.user_id,type,date,locaId,desc.trim(),'Pending',accuId]
+        [req.session.userID.user_id,type,date,locaId,desc.trim(),'Verifying',accuId]
       )  
       const probId = results2[0].insertId
       for (let i = 0; i < files.length; i++) {

@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require("express");
 const path = require("path");
 const cookieSession = require("cookie-session");
-
+const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -34,14 +34,16 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-
+app.use(methodOverride('_method'))
 
 const indexRouter = require('./routes/index')
 const formRouter = require('./routes/form')
 const logregRouter = require('./routes/logreg')
+const statusRouter = require('./routes/status')
 app.use(indexRouter.router)
 app.use(formRouter.router)
 app.use(logregRouter.router)
+app.use(statusRouter.router)
 app.get('/', (req,res)=>{
     res.render('test')
 })

@@ -25,7 +25,6 @@
 </style>
 <body style="height: 100%;">
     <!-- nav -->
-    <%- include('navbar') -%>
     <!-- main -->
 
     <div class="row p-3">
@@ -36,56 +35,93 @@
     <hr style="width: 30%; margin: auto">
 
     <div class="row py-3">
-        <div class="col">
-            <button type="button" class="btn btn-outline-dark" id="">Considering</button>
-            <button type="button" class="btn btn-outline-dark" id="">Pending</button>
-            <button type="button" class="btn btn-outline-dark" id="">Success</button>
-            <button type="button" class="btn btn-outline-dark" id="">Failed</button>
-        </div>
+        <form method="POST" action="/adminorg/Considering" >
+            <div class="col">
+                <input type="submit" class="btn btn-outline-dark" name="Considering" value="Considering" formaction="/adminorg/Considering?_method=PUT"></input>
+                <input type="submit" class="btn btn-outline-dark" name="Pending" value="Pending"  formaction="/adminorg/Pending?_method=PUT"></input>
+                <input type="submit" class="btn btn-outline-dark" name="Success"  value="Success"formaction="/adminorg/Success?_method=PUT"></input>
+                <input type="submit" class="btn btn-outline-dark" name="Failed" value="Failed" name="Failed" formaction="/adminorg/Failed?_method=PUT"></input>
+            </div>
+        </form>
     </div>
 
 
     <!--box-->
     <div class="row" id="main-box">
         <!--First-->
+        <% problemOrg.forEach((admins)=> {%>
         <div class="col-6 col-md-4 col-lg-4 box active card p-2 ">
-            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+            <img src="http://localhost:3000<%= admins.img_link %>" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+            <form method="POST" id="accept_<%= admins.prob_id %>" action="/adminorg/17/Considering"> 
             <div class="container-fluid p-3">
                 <div class="row">
                     <div class="col-md-6"><b>ACCUSER (User):</b></div>
-                    <div class="col-md-6 ms-auto">ARM1234</div>
+                    <div class="col-md-6 ms-auto"><%= admins.user_fname + " " +admins.user_lname%></div>
                 </div>
                 <div class="row">
                     <div class="col-md-6"><b>COMPLIANT TYPE:</b></div>
-                    <div class="col-md-6 ms-auto">Corruption</div>
+                    <div class="col-md-6 ms-auto"><%= admins.type_name%></div>
                 </div>
                 <div class="row">
                     <div class="col-md-6"><b>ACCUSED:</b></div>
-                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                    <div class="col-md-6 ms-auto"><%= admins.accused_type%></div>
                 </div>
                 <div class="row">
                     <div class="col-md-6"><b>DATE TIME:</b></div>
-                    <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
+                        <% 
+                        admins.prob_time = admins.prob_time.toLocaleString().substring(0,9) + admins.prob_time.toLocaleString('th-TH',  { dateStyle: 'short', timeStyle: 'short'}).substring('7')
+                        %>
+                        <div class="col-md-6 ms-auto"><%= admins.prob_time%></div>
                 </div>
                 <div class="row">
                     <div class="col-md-6"><b>STATUS:</b></div>
                     <div class="col-md-6 ms-auto">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected value="0">Considering</option>
-                            <option value="1">Pending</option>
-                            <option value="2">Success</option>
-                            <option value="3">Fail</option>
+                        <select class="form-select" onchange="changeS(this.value,'<%= admins.prob_id %>')" id="select_<%= admins.prob_id %>"  name="status_update" aria-label="Default select example">
+                            <option selected value="Considering">Considering</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Success">Success</option>
+                            <option value="Failed">Failed</option>
                         </select>
+                       
                     </div>
                 </div>
             </div>
             
+
             <div id="buttons" class="d-flex justify-content-center">
-                <button type="button" class="btn btn-success m-1">Accept</button>
-                <button type="button" class="btn btn-primary m-1" data-bs-target="#statusDescription1" data-bs-toggle="modal">View Details</button>
+                <input type="submit" name="Accept" id="submit_<%= admins.prob_id %>" class="btn btn-success m-1"></input>
+                <button type="button" class="btn btn-primary m-1" data-bs-target="#statusDescription<%= admins.prob_id %>" data-bs-toggle="modal">View Details</button>
             </div>
+
+            </form>
+            <script>
+                    function changeS(val, prob_id){
+                        console.log('<%= admins.prob_id %>')
+                        console.log(val,prob_id)
+                    let dropdown = document.getElementById(`select_${prob_id}`);
+                    const submitButton = document.getElementById(`submit_${prob_id}`);
+                    const form = document.getElementById(`accept_${prob_id}`);
+                    console.log(dropdown)
+                    console.log(submitButton)
+                    console.log(form)
+                    console.log(dropdown.value)
+
+                    submitButton.formAction = "/adminorg/update/"+ prob_id+ "/" + val + '?_method=PUT';
+
+                    dropdown.addEventListener('change', () => {
+                        console.log('DropDown')
+                        submitButton.formAction = "/adminorg/update/"+ prob_id+ "/" + val + '?_method=PUT';
+                        });
                     
-            <div class="modal fade" id="statusDescription1" tabindex="-1" aria-labelledby="statusDescriptionLabel1" aria-hidden="true"  style="overflow:auto;">
+                    form.addEventListener('submit', (event) => {
+                      const formData = new FormData(form);
+                      // Send the form data to the server using AJAX or fetch
+                    });
+                }
+                
+                
+            </script>
+            <div class="modal fade" id="statusDescription<%= admins.prob_id %>" tabindex="-1" aria-labelledby="statusDescriptionLabel1" aria-hidden="true"  style="overflow:auto;">
                 <div class="modal-dialog">
                     <div class="modal-content ">
                         <div class="modal-header">
@@ -101,12 +137,12 @@
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
                                 <div class="row">
                                     <div class="col-md-6"><b>Accused:</b></div>
-                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
+                                    <div class="col-md-6 ms-auto"><%=admins.accused_type%></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6"><b>Details:</b></div>
                                     <div class="col-md-6 ms-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                       <%=admins.prob_detail%>
                                     </div>
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
@@ -114,33 +150,39 @@
                                     <div class="row m-0">
                                         <div class="col-md-6 col-12">
                                             <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%=admins.street_address%></div></div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%=admins.district%></div></div>
                                         </div>
                                     </div>
                                     <div class="row m-0">
                                         <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                            <div class="row m-0"><div class="col-md-12"><b>Sub district:</b></div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%=admins.sub_district%></div></div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%=admins.province%></div></div>
                                         </div>
                                     </div>
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
-                                <div class="row m-0">
+                                <div class="row">
+                                    <% 
+                    
+                    date = admins.prob_time.toLocaleString().substring(0,9) 
+                    time =  admins.prob_time.toLocaleString('th-TH',  { dateStyle: 'short', timeStyle: 'short'}).substring('9')
+
+                    %>
                                     <div class="col-md-6 col-7">
                                         <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
-                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto"><%= date %></div></div>
                                     </div>
                                     <div class="col-md-6 col-5">
                                         <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
-                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
+                                        <div class="row"><div class="col-md-12 ms-auto"><%= time %></div></div>
                                     </div>
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
@@ -148,22 +190,21 @@
                                     <div><b>More Details:</b></div>
                                     <div class="row m-0">
                                         <div class="col-md-12 ms-auto">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
+                                           <%= admins.accused_detail%>
                                         </div>
                                     </div>
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
                                 <div class="row">
                                     <div><b>Pictures:</b></div>
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
-                                    </div>
+                                    <% for (var i = 0; i < image.length; i++) { %>
+                                        <% if (admins.prob_id === image[i].prob_id) { %>
+                                          <div class="col-md-4 p-1">
+                                            <img src="http://localhost:3000/<%= image[i].img_link %>" alt="" class="img-fluid">
+                                          </div>
+                                        <% } %>
+                                      <% } %>
+                                      
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
                                 <div class="row">
@@ -171,21 +212,21 @@
                                     <div class="row m-0">
                                         <div class="col-md-6 col-12">
                                             <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%= admins.user_fname%></div></div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%= admins.user_lname%></div></div>
                                         </div>
                                     </div>
                                     <div class="row m-0">
                                         <div class="col-md-6 col-12">
                                             <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%= admins.user_email%></div></div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
+                                            <div class="row m-0"><div class="col-md-12 ms-auto"><%= admins.user_phone%></div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -213,172 +254,7 @@
             </div>
         </div>
         <!--End-->
-
-        <div class="col-6 col-md-4 col-lg-4 box active card p-2 ">
-            <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
-            <div class="container-fluid p-3">
-                <div class="row">
-                    <div class="col-md-6"><b>ACCUSER (User):</b></div>
-                    <div class="col-md-6 ms-auto">ARM1234</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><b>COMPLIANT TYPE:</b></div>
-                    <div class="col-md-6 ms-auto">Corruption</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><b>ACCUSED:</b></div>
-                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><b>DATE TIME:</b></div>
-                    <div class="col-md-6 ms-auto">2022/05/04  19:30:52</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><b>STATUS:</b></div>
-                    <div class="col-md-6 ms-auto">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected value="0">Considering</option>
-                            <option value="1">Pending</option>
-                            <option value="2">Success</option>
-                            <option value="3">Fail</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="buttons" class="d-flex justify-content-center">
-                <button type="button" class="btn btn-success m-1">Accept</button>
-                <button type="button" class="btn btn-primary m-1" data-bs-target="#statusDescription1" data-bs-toggle="modal">View Details</button>
-            </div>
-                    
-            <div class="modal fade" id="statusDescription1" tabindex="-1" aria-labelledby="statusDescriptionLabel1" aria-hidden="true"  style="overflow:auto;">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="statusDescriptionLabel1">Description</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid p-2">
-                                <div class="row">
-                                    <div class="col-md-6"><b>Complant Type:</b></div>
-                                    <div class="col-md-6 ms-auto">I don't know</div>
-                                </div>
-                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
-                                <div class="row">
-                                    <div class="col-md-6"><b>Accused:</b></div>
-                                    <div class="col-md-6 ms-auto">YAGAMI LIGHT</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6"><b>Details:</b></div>
-                                    <div class="col-md-6 ms-auto">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
-                                    </div>
-                                </div>
-                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
-                                <div class="row">
-                                    <div class="row m-0">
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div></div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
-                                        </div>
-                                    </div>
-                                    <div class="row m-0">
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>City:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
-                                <div class="row">
-                                    <div class="col-md-6 col-7">
-                                        <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
-                                        <div class="row"><div class="col-md-12 ms-auto">2022/05/04</div></div>
-                                    </div>
-                                    <div class="col-md-6 col-5">
-                                        <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
-                                        <div class="row"><div class="col-md-12 ms-auto">19:30:52</div></div>
-                                    </div>
-                                </div>
-                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
-                                <div class="row">
-                                    <div><b>More Details:</b></div>
-                                    <div class="row m-0">
-                                        <div class="col-md-12 ms-auto">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, magnam sunt sapiente expedita quasi amet voluptates pariatur sequi error possimus totam ut optio at exercitationem itaque reprehenderit laborum quidem dolorem!
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
-                                <div class="row">
-                                    <div><b>Pictures:</b></div>
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-4 p-1">
-                                        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg;" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                                <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
-                                <div class="row">
-                                    <div><b>Complainant Information:</b></div>
-                                    <div class="row m-0">
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>Firstname:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>Lastname:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
-                                        </div>
-                                    </div>
-                                    <div class="row m-0">
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>Email:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="row m-0"><div class="col-md-12"><b>Phone:</b></div></div>
-                                            <div class="row m-0"><div class="col-md-12 ms-auto">Lorem ipsum dolor sit amet.</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="row">
-                                <div class="col-md-4 col-4"><b>Status:</b></div>
-                                <div class="col-md-8 col-8 ms-auto">
-                                    <select class="form-select float-start" aria-label="Default select example">
-                                        <option selected value="0">Considering</option>
-                                        <option value="1">Pending</option>
-                                        <option value="2">Success</option>
-                                        <option value="3">Fail</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="p-1">
-                                <button type="button" class="btn btn-success">Accept</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <% }) %>
     </div>
 </body>
 

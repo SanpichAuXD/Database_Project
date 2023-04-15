@@ -1,70 +1,126 @@
 const express = require("express");
-const pool = require('../config')
-
+const pool = require("../config");
 
 router = express.Router();
 
-router.get("/", async(req,res)=>{
-    const user = req.session.userID
-    const isAdmin = req.session.isAdmin
-    console.log(req.session);
-    let data = {user:user,isAdmin:isAdmin}
-    // const isAdmin = req.session.isAdmin === undefined ? req.session.isAdmin:false
-    // console.log('isAdmin:', req.session.isAdmin)
-    // data.user.isAdmin = isAdmin
-    console.log(data.isAdmin);
+router.get("/", async (req, res) => {
+    const user = req.session.userID;
+    const isAdmin = req.session.isAdmin;
+    let data = { user: user, isAdmin: isAdmin };
     try {
-       const [row,field] = await pool.query('SELECT * FROM user')
-    //    console.log(row);
-    //    console.log(req.session);
+        const [row, field] = await pool.query("SELECT * FROM user");
     } catch (error) {
         console.log(error);
     }
-    res.render('index',data)
-})
-router.get("/admin", async (req,res)=>{
-    const user = req.session.userID
-    let data = {user:user}
-    // const isAdmin = req.session.isAdmin||false
-    // data.user.isAdmin = isAdmin
+    res.render("index", data);
+});
+router.get("/admin", async (req, res) => {
+    const user = req.session.userID;
+    const isAdmin = req.session.isAdmin;
+    let data = { user: user, isAdmin: isAdmin };
     const [admin, fields] = await pool.query(
-        `SELECT * FROM user
-         join problem_info
-         using (user_id)
-         join accused
-         using (accused_id)
-         join prob_type
-         using(type_id)
-         join organization
-         using (org_id)
-         join location
-         using(location_id)
+        `SELECT * FROM problem_info
+        join user
+        using (user_id)
+        join accused
+        using (accused_id)
+        join prob_type
+        using(type_id)
+        join organization
+        using (org_id)
+        join location
+        using(location_id)
+        join prob_image
+        using(prob_id)
+         WHERE img_id in (SELECT  MIN(img_id)
+       FROM prob_image
+       GROUP BY prob_id) AND prob_status = 'Verifying'
          `
-    )
-    data.user = admin
-    data.problem = admin
-    console.log('admin',data)
-    res.render('admin-manager',data)
-})
-router.get("/adminorg", (req,res)=>{
-    const user = req.session.userID
-    let data = {user:user}
-    // const isAdmin = req.session.isAdmin||false
-    // data.user.isAdmin = isAdmin
-    res.render('admin-organization',data)
-})
-router.get("/adminhis", (req,res)=>{
-    const user = req.session.userID
-    let data = {user:user}
-    // const isAdmin = req.session.isAdmin||false
-    // data.user.isAdmin = isAdmin
-    res.render('admin-manager-histroy',data)
-})
-router.get("/acc", async (req,res)=>{
-    try{
-        const user = req.session.userID
-        // const isAdmin = req.session.isAdmin||false
-       
+    );
+    const [img, field] = await pool.query(
+        `SELECT img_id, img_link,prob_id
+        FROM prob_image
+        join problem_info
+        using(prob_id)`
+    );
+    data.problem = admin;
+    data.image = img;
+    res.render("admin-manager", data);
+});
+router.get("/adminorg", async (req, res) => {
+    const user = req.session.userID;
+    const isAdmin = req.session.isAdmin;
+    let data = { user: user, isAdmin: isAdmin };
+    const [adminOrg, fields] = await pool.query(
+        `SELECT * FROM problem_info
+        join user
+        using (user_id)
+        join accused
+        using (accused_id)
+        join prob_type
+        using(type_id)
+        join organization
+        using (org_id)
+        join location
+        using(location_id)
+        join prob_image
+        using(prob_id)
+         WHERE img_id in (SELECT  MIN(img_id)
+         FROM prob_image
+         GROUP BY prob_id) AND prob_status = 'Considering'
+         
+         `
+    );
+    const [img, field] = await pool.query(
+        `SELECT img_id, img_link,prob_id
+        FROM prob_image
+        join problem_info
+        using(prob_id)`
+    );
+    data.problemOrg = adminOrg;
+    data.image = img;
+    res.render("admin-organization", data);
+});
+router.get("/adminhis", async(req, res) => {
+   
+        const user = req.session.userID;
+        const isAdmin = req.session.isAdmin;
+        let data = { user: user, isAdmin: isAdmin };
+        const [prob_all, fieldname] = await pool.query(
+            `SELECT * FROM problem_info
+            join user
+            using (user_id)
+            join accused
+            using (accused_id)
+            join prob_type
+            using(type_id)
+            join organization
+            using (org_id)
+            join location
+            using(location_id)
+            join prob_image
+            using(prob_id)
+             WHERE img_id in (SELECT  MIN(img_id)
+           FROM prob_image
+           GROUP BY prob_id) AND prob_status NOT IN ('Verifying')
+             `
+        );
+
+        const [img, field] = await pool.query(
+            `SELECT img_id, img_link,prob_id
+            FROM prob_image
+            join problem_info
+            using(prob_id)`
+        );
+        data.prob = prob_all
+        data.image = img;
+    res.render("admin-manager-histroy", data);
+});
+router.get("/acc", async (req, res) => {
+    try {
+        const user = req.session.userID;
+        const isAdmin = req.session.isAdmin;
+
         const [probUserDB, fields] = await pool.query(
             `SELECT * FROM problem_info
              JOIN user
@@ -76,73 +132,68 @@ router.get("/acc", async (req,res)=>{
              LEFT OUTER JOIN accused
              USING(accused_id)
              JOIN prob_image
-             USING(prob_id) WHERE user_id = ?`, [req.session.userID.user_id]
-        )
-        let data = {user:user,
-                    probUser: probUserDB}
-        // data.user.isAdmin = isAdmin
-        console.log(data.user)
-        // console.log(probUserDB)
-        console.log(user)
-        if (user.user_id){
-            console.log('usereee',user);
-            const [member,fields1] = await pool.query(
-                `select * from user where user_id = ?`, [user.user_id]
-            )
-            data.user = member[0]
+             USING(prob_id) WHERE user_id = ?`,
+            [req.session.userID.user_id]
+        );
+        let data = { user: user, isAdmin: isAdmin,probUser: probUserDB };
+       
+        if (user.user_id) {
+            console.log("usereee", user);
+            const [member, fields1] = await pool.query(
+                `select * from user where user_id = ?`,
+                [user.user_id]
+            );
+            data.user = member[0];
+        } else if (user.admin_id) {
+            console.log("admin");
+            const [admin, fields1] = await pool.query(
+                `select admin_fname 'user_fname',admin_lname 'user_lname', admin_phone 'user_phone',admin_email 'user_email' from admin where admin_id = ?`,
+                [user.admin_id]
+            );
+            data.user = admin[0];
         }
-        else if (user.admin_id){
-            console.log('admin');
-            const [admin,fields1] = await pool.query(
-                `select admin_fname 'user_fname',admin_lname 'user_lname', admin_phone 'user_phone',admin_email 'user_email' from admin where admin_id = ?`, [user.admin_id]
-            )
-            data.user = admin[0]
-        }
-        // console.log(data);
-        res.render('account',data)
-
-    }catch(err){
-        return console.log(err);
+        res.render("account", data);
+    } catch (err) {
+        return res.redirect('/login')
     }
-})
-router.get("/login", (req,res)=>{
-    const user = req.session.userID
-    let data = {user:user}
-    // const isAdmin = req.session.isAdmin||false
-    // data.user.isAdmin = isAdmin
-    res.render('login',data)
-})
-router.get("/reg", (req,res)=>{
-    const user = req.session.userID
-    console.log('reg',user);
-    let data = {user:user}
-    // const isAdmin = req.session.isAdmin||false
-    // data.user.isAdmin = isAdmin
-    res.render('register',data)
-})
-router.get("/repform", (req,res)=>{
-    const user = req.session.userID
-    let data = {user:user}
-    // const isAdmin = req.session.isAdmin||false
-    // data.user.isAdmin = isAdmin
-    res.render('reportForm',data)
-})
-router.get("/chart", async (req,res)=>{
-    const user = req.session.userID
+});
+router.get("/login", (req, res) => {
+    const user = req.session.userID;
+    let data = { user: user };
+    res.render("login", data);
+});
+router.get("/reg", (req, res) => {
+    const user = req.session.userID;
+    let data = { user: user };
+    res.render("register", data);
+});
+router.get("/repform", (req, res) => {
+    const user = req.session.userID;
+    const isAdmin = req.session.isAdmin;
+    let data = { user: user,isAdmin:isAdmin };
+    res.render("reportForm", data);
+});
+router.get("/chart", async (req, res) => {
+    const user = req.session.userID;
+    const isAdmin = req.session.isAdmin;
     const [allProbReport, fields] = await pool.query(
-        `SELECT type_name, COUNT(prob_id)
+        `SELECT type_name, COUNT(prob_id)'probs'
          FROM prob_type
          LEFT OUTER JOIN problem_info
          USING (type_id)
          GROUP BY (type_name)`
-    )
-    console.log(allProbReport, '<- Chart')
-    for(let index in allProbReport){
-        console.log(allProbReport[index])
+    );
+    let reportValue = []
+    let reportType = []
+    for (let index in allProbReport) {
+        reportType.push(Object.values(allProbReport[index])[0]);
+        reportValue.push(Object.values(allProbReport[index])[1]);
     }
-    let data = {user:user}
-    // const isAdmin = req.session.isAdmin||false
-    // data.user.isAdmin = isAdmin
-    res.render('chart',data)
-})
+    let data = { user: user,
+                isAdmin:isAdmin,
+                 reportValue: reportValue,
+                 reportType: reportType };
+    data.stats = allProbReport
+    res.render("chart", data);
+});
 exports.router = router;

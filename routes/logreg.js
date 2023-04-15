@@ -8,7 +8,6 @@ router = express.Router();
 
 const ifNotLoggedIn = (req, res, next) => {
     if (!req.session.isLoggedIn) {
-        console.log('notloggedin',req.session.isLoggedIn);
         return res.render("login");
     }
     next();
@@ -16,7 +15,6 @@ const ifNotLoggedIn = (req, res, next) => {
 
 const ifLoggedIn = (req, res, next) => {
     if (req.session.isLoggedIn) {
-        console.log('logged in',req.session.isLoggedIn);
         return res.redirect("/");
     }
     next();
@@ -73,13 +71,11 @@ router.post(
     .withMessage("Password Not Match"),
     ],
     (req, res, next) => {
-        console.log(req.session);
         const validation_result = validationResult(req);
         const { fname,lname, password,phone, email } = req.body;
         if (validation_result.isEmpty()) {
             bcrypt.hash(password, 12, async function (err, hash) {
                 try {
-                    console.log(hash);
                         const [row, field] = await pool.query(
                         "INSERT INTO user(user_password, user_email, user_phone,user_fname,user_lname) VALUES(?,?,?,?,?)",
                         [ hash,email,phone,fname,lname]
@@ -153,17 +149,14 @@ router.post(
                     row = row2[0].admin_password
                     user = row2[0]
                 }
-                console.log(row);
                 bcrypt.compare(
                     user_pass,
                     row,
                     function (err, isLogin) {
-                        console.log('login',isLogin);
                         if (isLogin === true) {
                             req.session.isLoggedIn = true;
                             req.session.userID = user;
                             req.session.isAdmin = isAdmin
-                            console.log('logging',req.session.isAdmin);
                             res.redirect("/");
                         } else {
                             res.render("login", {
