@@ -12,13 +12,12 @@
         <link rel="stylesheet" href="/css/account.css">
 </head>
 <body>
-    <%- include('navbar') -%>
+    <%- include('navbar', {user:user}) -%>
     <div>
     <div class="row pt-4">
         <div class="col-4">
             <div class="row p-5 leftbox" id="box" onclick="switchPage(1)"><div class="col"><h3>Account Detail</h3></div></div>
-            <!-- <div class="row p-5 leftbox" id="box" onclick="switchPage(2)"><div class="col"><h3>Reset Password</h3></div></div> -->
-            <div class="row p-5 leftbox" id="box" onclick="switchPage(3)"><div class="col"><h3>Report History</h3></div></div>
+            <div class="row p-5 leftbox" id="box" onclick="switchPage(2)"><div class="col"><h3>Report History</h3></div></div>
             <div class="row p-5 leftbox" id="spbox" onclick=""><div class="col"><h3>Logout</h3></div></div>
         </div>
         <div class="col">
@@ -30,7 +29,7 @@
                         <h4>Firstname</h4>
                     </div>
                     <div class="col text-right">
-                        <h4>User Firstname</h4>
+                        <h4><%= user.user_fname %></h4>
                     </div>
                 </div>
                 <div class="row pt-4" style="padding-right: 100px;">
@@ -38,7 +37,7 @@
                         <h4>Lastname</h4>
                     </div>
                     <div class="col text-right">
-                        <h4>User Lastname</h4>
+                        <h4><%= user.user_lname %></h4>
                     </div>
                 </div>
                 <div class="row pt-4" style="padding-right: 100px;">
@@ -46,7 +45,7 @@
                         <h4>Email</h4>
                     </div>
                     <div class="col text-right">
-                        <h4>User Email</h4>
+                        <h4><%= user.user_email %></h4>
                     </div>
                 </div>
                 <div class="row pt-4" style="padding-right: 100px;">
@@ -54,193 +53,161 @@
                         <h4>Phonenumber</h4>
                     </div>
                     <div class="col text-right">
-                        <h4>User Phonenumber</h4>
-                    </div>
-                </div>
-                <div class="row pt-4" style="padding-right: 100px;">
-                    <div class="col text-left">
-                        <h4>SSID</h4>
-                    </div>
-                    <div class="col text-right">
-                        <h4>User SSID</h4>
+                        <h4><%= user.user_phone%></h4>
                     </div>
                 </div>
             </div>
             <div class="container p-2" id="page-2">
-                index
-            </div>
-            <div class="container p-2" id="page-3">
                 <table id="probTable" class="table table-hover">
                     <thead style="background-color: #B88A64; color:white; border-radius:15px; font-size:1.3vw">
                         <tr class="rounded">
-                            <th scope="col" class="px-3">Id</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Type</th>
-                            <th scope="col" colspan="2">Email</th>
+                            <th scope="col" class="px-3">No.</th>
+                            <th scope="col">Complant Type</th>
+                            <th scope="col" colspan="2">Accused</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Location</th>
                             <th scope="col">Detail</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
-                    <tbody style="font-size:1.2vw;">
+                    <tbody style="font-size:1.2vw;">        
+                        <%
+                            let number_id = 1
+                            for (let info of probUser) { 
+                            let date = JSON.stringify(info.prob_time).replace(/-/g, '/').split('T')[0].replace('"', '')
+                            let time = info.prob_time.toString().split(' ', 5)[4]
+                        %>
+                        
                         <tr>
-                            <th scope="row">17</th>
-                            <td>Mark1</td>
-                            <td>Deserted Area</td>
-                            <td colspan="2">mark@mail.com</td>
-                            <td>22/3/2023</td>
-                            <td>Area 52</td>
+                            <th scope="row"><%= number_id %></th>
+                            <td><%= info.type_name %></td>
+                            <td colspan="2"><%= info.accused_type %></td>
+                            <td><%= date %></td>
                             <td><!-- Button trigger modal -->
                                 <button type="button" class="btn"
                                     style="background-color: #DDB892; font-size:1.3vw; color:white" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
+                                    data-bs-target="#statusDescription<%= number_id %>">
                                     View Detail
                                 </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="statusDescription<%= number_id %>" tabindex="-1" aria-labelledby="statusDescriptionLabel1" aria-hidden="true"  style="overflow:auto;">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                <h1 class="modal-title fs-5" id="statusDescriptionLabel1">Description</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h2>Prob title</h2>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Detail 1</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                                        value="sdaasdad" disabled>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Detail 2</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                                        value="sdaasdad" disabled>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Detail 3</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                                        value="sdaasdad" disabled>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Example
-                                                        textarea</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                                        disabled>sadasdasdasdasdasdasdadsasdasd</textarea>
+                                                <div class="container-fluid p-2">
+                                                    <div class="row">
+                                                        <div class="col-md-6"><b>Complant Type:</b></div>
+                                                        <div class="col-md-6 ms-auto"><%= info.type_name %></div>
+                                                    </div>
+                                                    <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                                    <div class="row">
+                                                        <div class="col-md-6"><b>Accused:</b></div>
+                                                        <div class="col-md-6 ms-auto"><%= info.accused_type %></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6"><b>Details:</b></div>
+                                                        <div class="col-md-6 ms-auto">
+                                                            <%= info.accused %>
+                                                        </div>
+                                                    </div>
+                                                    <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                                    <div class="row">
+                                                        <div class="row m-0">
+                                                            <div class="col-md-6 col-12">
+                                                                <div class="row m-0"><div class="col-md-12"><b>Address:</b></div></div>
+                                                                <div class="row m-0"><div class="col-md-12 ms-auto"><%= info.street_address %></div></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-12">
+                                                                <div class="row m-0"><div class="col-md-12"><b>District:</b></div></div>
+                                                                <div class="row m-0"><div class="col-md-12 ms-auto"><%= info.district %></div></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-0">
+                                                            <div class="col-md-6 col-12">
+                                                                <div class="row m-0"><div class="col-md-12"><b>Sub districet:</b></div></div>
+                                                                <div class="row m-0"><div class="col-md-12 ms-auto"><%= info.sub_district %></div></div>
+                                                            </div>
+                                                            <div class="col-md-6 col-12">
+                                                                <div class="row m-0"><div class="col-md-12"><b>Province:</b></div></div>
+                                                                <div class="row m-0"><div class="col-md-12 ms-auto"><%= info.province %></div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-7">
+                                                            <div class="row"><div class="col-md-12"><b>Date:</b></div></div>
+                                                            <div class="row"><div class="col-md-12 ms-auto"><%= date %></div></div>
+                                                        </div>
+                                                        <div class="col-md-6 col-5">
+                                                            <div class="row"><div class="col-md-12"><b>Time:</b></div></div>
+                                                            <div class="row"><div class="col-md-12 ms-auto"><%= time %></div></div>
+                                                        </div>
+                                                    </div>
+                                                    <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                                    <div class="row">
+                                                        <div><b>More Details:</b></div>
+                                                        <div class="row m-0">
+                                                            <div class="col-md-12 ms-auto">
+                                                                <%= info.prob %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
+                                                    <div class="row">
+                                                        <div><b>Pictures:</b></div>
+                                                        <div class="col-md-4 p-1">
+
+                                                            <img src="<%= info.img_link ? info.img_link : '' %>" alt="" class="img-fluid">
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn">Save changes</button>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-4"><b>Status:</b></div>
+                                                    <div class="col-md-8 col-8 ms-auto">
+                                                        <div class="shadow-sm  border border-2 p-1 mb-2 bg-white rounded"><%= info.prob_status %></div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-1">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <select class="form-select" aria-label="Default select example">
-    
-                                    <option value="Pending">Pending</option>
-                                    <option value="Success">Success</option>
-                                    <option value="Failed">Failed</option>
-                                </select>
-                            </td>
+                            <td><%= info.prob_status %></td>
                         </tr>
-                        <tr>
-                            <th scope="row">17</th>
-                            <td>Test</td>
-                            <td>Deserted Eagle</td>
-                            <td colspan="2">mark@mail.com</td>
-                            <td>22/3/2023</td>
-                            <td>KMITL</td>
-                            <td><!-- Button trigger modal -->
-                                <button type="button" class="btn" style="font-size:1.3vw" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    View Detail
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h2>Prob title</h2>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Detail 1</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                                        value="sdaasdad" disabled>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Detail 2</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                                        value="sdaasdad" disabled>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Detail 3</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                                        value="sdaasdad" disabled>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Example
-                                                        textarea</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                        rows="3">sadasdasdasdasdasdasdadsasdasd</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <select class="form-select" aria-label="Default select example">
-    
-                                    <option value="Pending">Pending</option>
-                                    <option value="Success">Success</option>
-                                    <option value="Failed">Failed</option>
-                                </select>
-                            </td>
-                        </tr>
+                        <% 
+                            number_id += 1
+                        } %>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+        
     <%- include('footer') -%>
     
     <script>
         const profilePage = document.getElementById("page-1");
-        const resetPassword = document.getElementById("page-2");
-        const reportHistory = document.getElementById("page-3");
+        const reportHistory = document.getElementById("page-2");
         profilePage.style.display = "block";
-        resetPassword.style.display = "none";
         reportHistory.style.display = "none";
         function switchPage(page) {
             if (page == 1) {
                 profilePage.style.display = "block";
-                resetPassword.style.display = "none";
                 reportHistory.style.display = "none";
             }
              else if (page == 2) {
                 profilePage.style.display = "none";
-                resetPassword.style.display = "block";
-                reportHistory.style.display = "none";
-            }
-             else if (page == 3) {
-                profilePage.style.display = "none";
-                resetPassword.style.display = "none";
                 reportHistory.style.display = "block";
             }
         }

@@ -20,11 +20,24 @@
           <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="/">Home</a></li>
           <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/repform">Report</a></li>
           <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/acc">Account</a></li>
+          
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/admin">Admin</a></li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/adminhis">AdminHis</a></li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/adminorg">AdminOrg</a></li>
+          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/chart">Chart</a></li>
+         
         </ul>
         <ul class="navbar-nav ">
-          <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="/login">Login</a></li>
-          <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/reg">Register</a></li>
+          <% if (user) { %>
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/account"><%= user.user_fname %><%= user.admin_fname %></a></li>
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/logout">Logout</a></li>
+          <% } 
+          else{ %>  
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" aria-current="page" href="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link px-3" id="nav-item" href="/reg">Register</a></li>
+         <% } %>
+          
         </ul>
-      </div>
+      </div>  
     </div>
   </nav>

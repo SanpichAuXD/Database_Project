@@ -45,7 +45,7 @@ router.post(
             .custom(async (value) => {
                 try {
                     const [rows] = await pool.execute(
-                        "SELECT `admin_email` FROM `admin` WHERE `admin_email`=?",
+                        "SELECT `user_email` FROM `user` WHERE `user_email`=?",
                         [value]
                     );
                     if (rows.length > 0) {
@@ -73,7 +73,7 @@ router.post(
     .withMessage("Password Not Match"),
     ],
     (req, res, next) => {
-        console.log(req.body);
+        console.log(req.session);
         const validation_result = validationResult(req);
         const { fname,lname, password,phone, email } = req.body;
         if (validation_result.isEmpty()) {
@@ -81,7 +81,7 @@ router.post(
                 try {
                     console.log(hash);
                         const [row, field] = await pool.query(
-                        "INSERT INTO admin(admin_password, admin_email, admin_phone,admin_fname,admin_lname) VALUES(?,?,?,?,?)",
+                        "INSERT INTO user(user_password, user_email, user_phone,user_fname,user_lname) VALUES(?,?,?,?,?)",
                         [ hash,email,phone,fname,lname]
                     );
 
@@ -143,9 +143,11 @@ router.post(
                 );
                 let row;
                 let user;
+                let isAdmin = true;
                 if (row1.length>0){
                     row = row1[0].user_password
                     user = row1[0]
+                    isAdmin = false
                 }
                 else if (row2.length>0){
                     row = row2[0].admin_password
@@ -160,6 +162,8 @@ router.post(
                         if (isLogin === true) {
                             req.session.isLoggedIn = true;
                             req.session.userID = user;
+                            req.session.isAdmin = isAdmin
+                            console.log('logging',req.session.isAdmin);
                             res.redirect("/");
                         } else {
                             res.render("login", {
@@ -194,3 +198,4 @@ router.get('/logout',(req,res)=>{
 // });
 
 exports.router = router
+

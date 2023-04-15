@@ -40,10 +40,11 @@ router.post('/sendprob',
         "INSERT INTO accused(accused_type,accused_detail) VALUES(?,?);",
         [accused,accused_detail]
       )
+      console.log(req.session.userID.user_id);
       const accuId = addAccused[0].insertId;
       let results2 = await conn.query(
-        "INSERT INTO problem_info(user_id,type_id,prob_time,location_id,prob_detail,prob_status,accused_id) VALUES(1,?,?,?,?,?,?)",
-        [type,date,locaId,desc,'Pending',accuId]
+        "INSERT INTO problem_info(user_id,type_id,prob_time,location_id,prob_detail,prob_status,accused_id) VALUES(?,?,?,?,?,?,?)",
+        [req.session.userID.user_id,type,date,locaId,desc.trim(),'Pending',accuId]
       )  
       const probId = results2[0].insertId
       for (let i = 0; i < files.length; i++) {
