@@ -25,6 +25,7 @@
 </style>
 <body style="height: 100%;">
     <!-- nav -->
+    <%- include('navbar') -%>
     <!-- main -->
 
     <div class="row p-3">
@@ -49,9 +50,12 @@
     <!--box-->
     <div class="row" id="main-box">
         <!--First-->
+        <%if (problemOrg.length === 0) {%>
+            <h1>No report</h1>
+            <% } %>
         <% problemOrg.forEach((admins)=> {%>
         <div class="col-6 col-md-4 col-lg-4 box active card p-2 ">
-            <img src="http://localhost:3000<%= admins.img_link %>" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
+            <img src="<%= admins.img_link ? admins.img_link:'https://bulma.io/images/placeholders/640x360.png' %>" alt="" class="img-fluid rounded mx-auto d-block" style="width:20vw;">
             <form method="POST" id="accept_<%= admins.prob_id %>" action="/adminorg/17/Considering"> 
             <div class="container-fluid p-3">
                 <div class="row">
@@ -77,10 +81,14 @@
                     <div class="col-md-6"><b>STATUS:</b></div>
                     <div class="col-md-6 ms-auto">
                         <select class="form-select" onchange="changeS(this.value,'<%= admins.prob_id %>')" id="select_<%= admins.prob_id %>"  name="status_update" aria-label="Default select example">
-                            <option selected value="Considering">Considering</option>
-                            <option value="Pending">Pending</option>
-                            <option value="Success">Success</option>
-                            <option value="Failed">Failed</option>
+                            <% const values = ['Success', 'Pending', 'Failed', 'Considering']; %>
+                              <% for (let i = 0; i < values.length; i++) { %>
+                                <% if (values[i] === admins.prob_status) { %>
+                                    <option value="<%= values[i] %>" selected><%= values[i] %></option>
+                                <% } else { %>
+                                    <option value="<%= values[i] %>"><%= values[i] %></option>
+                                <% } %>
+                       <%   } %>
                         </select>
                        
                     </div>
@@ -89,27 +97,28 @@
             
 
             <div id="buttons" class="d-flex justify-content-center">
-                <input type="submit" name="Accept" id="submit_<%= admins.prob_id %>" class="btn btn-success m-1"></input>
+               
+                <input type="submit" value="Accept" id="submit_<%= admins.prob_id %>" class="btn btn-success m-1"></input>
                 <button type="button" class="btn btn-primary m-1" data-bs-target="#statusDescription<%= admins.prob_id %>" data-bs-toggle="modal">View Details</button>
             </div>
 
             </form>
             <script>
                     function changeS(val, prob_id){
-                        console.log('<%= admins.prob_id %>')
-                        console.log(val,prob_id)
+                        // console.log('<%= admins.prob_id %>')
+                        // console.log(val,prob_id)
                     let dropdown = document.getElementById(`select_${prob_id}`);
                     const submitButton = document.getElementById(`submit_${prob_id}`);
                     const form = document.getElementById(`accept_${prob_id}`);
-                    console.log(dropdown)
-                    console.log(submitButton)
-                    console.log(form)
-                    console.log(dropdown.value)
+                    // console.log(dropdown)
+                    // console.log(submitButton)
+                    // console.log(form)
+                    // console.log(dropdown.value)
 
                     submitButton.formAction = "/adminorg/update/"+ prob_id+ "/" + val + '?_method=PUT';
 
                     dropdown.addEventListener('change', () => {
-                        console.log('DropDown')
+                        // console.log('DropDown')
                         submitButton.formAction = "/adminorg/update/"+ prob_id+ "/" + val + '?_method=PUT';
                         });
                     
@@ -118,6 +127,7 @@
                       // Send the form data to the server using AJAX or fetch
                     });
                 }
+                
                 
                 
             </script>
@@ -132,7 +142,7 @@
                             <div class="container-fluid p-2">
                                 <div class="row">
                                     <div class="col-md-6"><b>Complant Type:</b></div>
-                                    <div class="col-md-6 ms-auto">I don't know</div>
+                                    <div class="col-md-6 ms-auto"><%= admins.type_name%></div>
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
                                 <div class="row">
@@ -142,7 +152,7 @@
                                 <div class="row">
                                     <div class="col-md-6"><b>Details:</b></div>
                                     <div class="col-md-6 ms-auto">
-                                       <%=admins.prob_detail%>
+                                       <%= admins.accused_detail%>
                                     </div>
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
@@ -187,10 +197,10 @@
                                 </div>
                                 <hr style="height:0.25vh;border-width:0;color:gray;background-color:gray">
                                 <div class="row">
-                                    <div><b>More Details:</b></div>
+                                    <div><b>Description:</b></div>
                                     <div class="row m-0">
                                         <div class="col-md-12 ms-auto">
-                                           <%= admins.accused_detail%>
+                                            <%=admins.prob_detail%>
                                         </div>
                                     </div>
                                 </div>
@@ -232,23 +242,29 @@
                                 </div>
                             </div>
                         </div>
+                        <form method="POST" id="acceptModel_<%= admins.prob_id %>">
                         <div class="modal-footer">
                             <div class="row">
                                 <div class="col-md-4 col-4"><b>Status:</b></div>
                                 <div class="col-md-8 col-8 ms-auto">
-                                    <select class="form-select float-start" aria-label="Default select example">
-                                        <option selected value="0">Considering</option>
-                                        <option value="1">Pending</option>
-                                        <option value="2">Success</option>
-                                        <option value="3">Fail</option>
+                                    <select class="form-select float-start" id="selectModel_<%= admins.prob_id %>" onchange="changeInModel(this.value,'<%= admins.prob_id %>')" aria-label="Default select example">
+                                        <% const values2 = ['Success', 'Pending', 'Failed', 'Considering']; %>
+                              <% for (let i = 0; i < values2.length; i++) { %>
+                                <% if (values2[i] === admins.prob_status) { %>
+                                    <option value="<%= values2[i] %>" selected><%= values2[i] %></option>
+                                <% } else { %>
+                                    <option value="<%= values2[i] %>"><%= values2[i] %></option>
+                                <% } %>
+                       <%   } %>
                                     </select>
                                 </div>
                             </div>
                             <div class="p-1">
-                                <button type="button" class="btn btn-success">Accept</button>
+                                <input type="submit" value="Accept" id="submitModel_<%= admins.prob_id %>" class="btn btn-success m-1"></input>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -256,6 +272,28 @@
         <!--End-->
         <% }) %>
     </div>
+    <script>
+                    function changeInModel(val, prob_id){
+
+                    let dropdown = document.getElementById(`selectModel_${prob_id}`);
+                    const submitButtonModel = document.getElementById(`submitModel_${prob_id}`);
+                    const form = document.getElementById(`acceptModel_${prob_id}`);
+
+                    submitButtonModel.formAction = "/adminorg/update/"+ prob_id+ "/" + val + '?_method=PUT';
+
+                    dropdown.addEventListener('change', () => {
+                        submitButtonModel.formAction = "/adminorg/update/"+ prob_id+ "/" + val + '?_method=PUT';
+                        });
+                    
+                    form.addEventListener('submit', (event) => {
+                      const formData = new FormData(form);
+                      // Send the form data to the server using AJAX or fetch
+                    });
+                }
+                
+                
+                
+            </script>
 </body>
 
 </html>

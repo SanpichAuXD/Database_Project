@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/css/account.css">
 </head>
 <body>
+    <% console.log(user) %>
     <%- include('navbar', {user:user}) -%>
     <div>
     <div class="row pt-4" style="height:70%">
@@ -20,11 +21,13 @@
             <% if (user && !isAdmin) { %>
             <div class="row p-5 leftbox" id="box" onclick="switchPage(2)"><div class="col"><h3>Report History</h3></div></div>
             <% } %>
-            <div class="row p-5 leftbox" id="spbox" onclick=""><div class="col"><h3>Logout</h3></div></div>
+            <div class="row p-5 leftbox" id="spbox" onclick="location.href='/logout'"><div class="col"><h3>Logout</h3></div></div>
         </div>
         <div class="col">
             <div class="container p-4" id="page-1">
-                <h6>Your account reported ... problem in total</h6>
+                <%if(user && !isAdmin) {%>
+                <h6>Your account reported <%=count.count%> problem in total</h6>
+                <% } %>
                 <h3 class="pb-3">Personal Detail</h3>
                 <div class="row pt-3" style="padding-right: 100px;">
                     <div class="col text-left">
@@ -59,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container p-2" id="page-2">
+            <div class="container p-2" id="page-2" style = "height:64vh; overflow:scroll;">
                 <table id="probTable" class="table table-hover">
                     <thead style="background-color: #B88A64; color:white; border-radius:15px; font-size:1.3vw">
                         <tr class="rounded">

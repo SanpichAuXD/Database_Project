@@ -1,12 +1,26 @@
-<footer class="py-3 m-auto h5 bottom-0 w-100" style="background-color:#7f5539;">
+<footer class="py-4 m-auto h5 bottom-0 w-100" style="background-color:#7f5539;">
     <div class="container-fluid">
-      <ul class="nav justify-content-center py-1">
-        <li class="nav-item"><a href="index.html" class="nav-link px-3" id="nav-item">Home</a></li>
-        <li class="nav-item"><a href="reportForm.html" class="nav-link px-3" id="nav-item">Report</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-3" id="nav-item">About us</a></li>
-        <li class="nav-item"><a href="login.html" class="nav-link px-3" id="nav-item">Login</a></li>
-        <li class="nav-item"><a href="register.html" class="nav-link px-3" id="nav-item">Register</a></li>
-      </ul>
+      <ul class="nav justify-content-center py-1" >
+        <% if (user && !isAdmin) { %>
+          <li class="nav-item"><a class="nav-link px-3" style="color:#ddb892" id="nav-item" href="/repform">Report</a></li>
+          <li class="nav-item"><a class="nav-link px-3" style="color:#ddb892" id="nav-item" href="/acc">Account</a></li>
+        <% } %>
+        <% if (user && isAdmin) { %>
+          <li class="nav-item"><a class="nav-link px-3" style="color:#ddb892" id="nav-item" href="/acc">Account</a></li>  
+          <% if (!user.org_id) { %>
+            <li class="nav-item"><a class="nav-link px-3" style="color:#ddb892" id="nav-item" href="/admin">Admin</a></li>
+            <% } %>
+            <% if(user.org_id){ %>
+              <li class="nav-item"><a class="nav-link px-3" style="color:#ddb892" id="nav-item" href="/adminorg">AdminOrg</a></li>
+            <% } %>
+          <% } %>
+        
+          <li class="nav-item"><a class="nav-link px-3" style="color:#ddb892" id="nav-item" href="/chart">Chart</a></li>
+        </ul>
+        <ul class="nav justify-content-center py-1">
+          <li class="nav-item"><u style="text-decoration: underline; -webkit-text-decoration-color: white; text-decoration-color: white;"><a class="nav-link px-3" style="color:#ddb892" id="nav-item" target="_blank" href="https://drive.google.com/file/d/1KdtZKDu4C3klZGAf5l3D7ba-Jf6rMOOv/view?usp=sharing">Document For User</a></u></li>
+        </ul>
+        
       <hr style="border: 2px solid #ddb892;" class="m-2">
       <p class="text-center m-0 py-1" style="color: #ddb892">© 2023 Call Sing</p>
     </div>

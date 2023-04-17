@@ -143,6 +143,7 @@ router.post(
                 if (row1.length>0){
                     row = row1[0].user_password
                     user = row1[0]
+                    user.org_id=null
                     isAdmin = false
                 }
                 else if (row2.length>0){
@@ -154,13 +155,15 @@ router.post(
                     row,
                     function (err, isLogin) {
                         if (isLogin === true) {
+                           
                             req.session.isLoggedIn = true;
                             req.session.userID = user;
                             req.session.isAdmin = isAdmin
                             res.redirect("/");
                         } else {
                             res.render("login", {
-                                login_error: ["Invalid Password!"],
+                                user:null,
+                                login_errors: ["Invalid Password!"],
                             });
                         }
                     }
@@ -172,8 +175,10 @@ router.post(
             let allErrors = validation_result.errors.map((error) => {
                 return error.msg;
             });
+            console.log(allErrors);
             // REDERING login-register PAGE WITH LOGIN VALIDATION ERRORS
             res.render("login", {
+                user:null,
                 login_errors: allErrors,
             });
         }
